@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.form-section, .help-section {
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+.form-step {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.help-section {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.help-section h3 {
+    margin-top: 0;
+}
+
+.help-section p {
+    margin: 5px 0;
+}
+
+.help-section a {
+    color: #007BFF;
+}
+
+.help-section a:hover {
+    text-decoration: underline;
+}

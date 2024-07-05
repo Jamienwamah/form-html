@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostille / Legalization Job Request</title>
+    <link rel="stylesheet" href="apos.css">
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-section">
+            <div class="form-step" id="step-1">
+                <h3>Step 1: Country</h3>
+                <p>Please fill out the form and select your processing time. Our specialists will let you know if it is
+                    currently available.</p>
+                <label for="country">Which foreign country (not the US) are the documents intended for?</label>
+                <select id="country" required>
+                    <option value="united-states">United States</option>
+                    <option value="canada">Canada</option>
+                    
+                </select>
+                <p>Do you need your documents translated?</p>
+                <label>
+                    <input type="radio" name="translated" value="yes"> Yes
+                </label>
+                <label>
+                    <input type="radio" name="translated" value="no" checked> No
+                </label>
+                <button onclick="nextStep(2)">Next</button>
+            </div>
+
+            <div class="form-step" id="step-2" style="display:none;">
+                <h3>Step 2: Documents</h3>
+                <label for="document-category">Document Category</label>
+                <select id="document-category" onchange="updateDocumentType()" required>
+                    <option value="">---</option>
+                    <option value="personal">Personal</option>
+                    <option value="business">Business</option>
+                    <option value="federal">Federal</option>
+                </select>
+
+                <label for="document-type">1st Document:</label>
+                <select id="document-type" required>
+                    <option value="">Select Document Type</option>
+                </select>
+
+                <label for="service">Select service</label>
+                <select id="service" required>
+                    <option value="">---</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)
+                    </option>
+                    <option value="$350-federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                </select>
+
+                <label for="document-status">Please tell us the status of your document</label>
+                <select id="document-status" required>
+                    <option value="">---</option>
+                    <option value="i-need-to-notarize-my-document">I need to notarize my document. Send me the
+                        notarization format</option>
+                    <!-- Add status options here -->
+                </select>
+
+                <button class="add-document-btn">Add a document</button>
+
+                <div class="button-group">
+                    <button onclick="nextStep(1)">Back</button>
+                    <button onclick="nextStep(3)">Next</button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step-3" style="display:none;">
+                <h3>Step 3: Contact Information</h3>
+                <label for="email">Your Email</label>
+                <input type="email" id="email" required>
+
+                <label for="company">Company</label>
+                <input type="text" id="company">
+
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" required>
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" required>
+
+                <label for="address">Desired Address of Signing</label>
+                <input type="text" id="address" required>
+
+                <label for="unit-number">Booking Number</label>
+                <input type="text" id="unit-number">
+
+                <label for="city">City</label>
+                <input type="text" id="city" required>
+
+                <label for="state-region">State/Province/Region</label>
+                <input type="text" id="state-region" required>
+
+                <label for="zip-code">ZIP/Postal Code</label>
+                <input type="text" id="zip-code" required>
+
+                <label for="country">Country</label>
+                <input type="text" id="country" required>
+
+                <div class="button-group">
+                    <button onclick="nextStep(2)">Back</button>
+                    <button onclick="nextStep(4)">Next</button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step-4" style="display:none;">
+                <h3>Step 4: Upload</h3>
+                <p>Please upload your files so that we can review and avoid any delays.</p>
+                <input type="file" multiple required>
+
+                <label for="comments">Comments</label>
+                <textarea id="comments"></textarea>
+
+                <p>Please include any details about the person we are serving, i.e. physical description, work hours, if
+                    they are expected to avoid service, car they drive, etc.</p>
+
+                <label for="upload-files">Please upload your files so that we can review and avoid any delays</label>
+                <h3>Upload files:</h3>
+                <input type="file" id="upload-files" multiple required>
+                <input type="file" id="upload-files" multiple required>
+                <input type="file" id="upload-files" multiple required>
+
+
+                <div class="button-group">
+                    <button onclick="nextStep(3)">Back</button>
+                    <button onclick="nextStep(5)">Next</button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step-5" style="display:none;">
+                <h3>Step 5: Additional Information</h3>
+                <label for="phone-number">Your phone number</label>
+                <input type="tel" id="phone-number" required>
+
+                <label for="person-name">What Type of Document Do You Need Notarized</label>
+                <input type="text" id="person-name" required>
+
+                <label for="document-type-2">Please Provide the Name(s) of the Signer(s).</label>
+                <input type="text" id="document-type-2" required>
+
+                <label for="pages-number">How many pages require notarization?</label>
+                <select id="pages-number" required>
+                    <option value="1">1</option>
+                    <!-- Add other options here -->
+                </select>
+
+                <label for="address-entity">Address of person/entity being served</label>
+                <input type="text" id="address-entity" required>
+
+                <label for="calendly-scheduler">Requested appointment date</label>
+                <div  class="calendly-inline-widget" data-url="https://calendly.com/gh-mdgnotary">
+                </div>
+
+                <div class="button-group">
+                    <button onclick="nextStep(4)">Back</button>
+                    <button onclick="nextStep(6)">Next</button>
+                </div>
+            </div>
+            <div class="form-step" id="step-5" style="display:none;">
+                <h3>Step 6: Additional Information</h3>
+                <label for="phone-number">Your phone number</label>
+                <input type="tel" id="phone-number" required>
+
+                <label for="person-name">What Type of Loan Signing Do You Need</label>
+                <input type="text" id="person-name" required>
+
+                <label for="document-type-2">Please Provide the Name(s) of the Signer(s).</label>
+                <input type="text" id="document-type-2" required>
+
+                <label for="document-type-2">What Type of Estate Planning Signing Do You Need.</label>
+                <input type="text" id="document-type-2" required>
+
+                <label for="document-type-2">Please Provide the Name(s) of the Signer(s).</label>
+                <input type="text" id="document-type-2" required>
+
+                <label for="person-name">What Type of Document Do You Need</label>
+                <input type="text" id="person-name" required>
+
+                <label for="document-type-2">Please Provide the Name(s) of the Signer(s).</label>
+                <input type="text" id="document-type-2" required>
+
+                <label for="pages-number">How Many Signatures Need to Be Notarization?</label>
+                <select id="pages-number" required>
+                    <option value="1">1</option>
+                    <!-- Add other options here -->
+                </select>
+
+                <p>Please include any details about the person we are serving, i.e. physical description, work hours, if
+                    they are expected to avoid service, car they drive, etc.</p>
+
+                <label for="upload-files">Please upload your files so that we can review and avoid any delays</label>
+                <h3>Upload files:</h3>
+                <input type="file" id="upload-files" multiple required>
+                <input type="file" id="upload-files" multiple required>
+                <input type="file" id="upload-files" multiple required>
+
+                <div class="button-group">
+                    <button onclick="nextStep(5)">Back</button>
+                </div>
+
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f9f9f9;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .container {
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 80%;
+                max-width: 800px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .calendly-inline-widget {
+                min-width: 320px;
+                height: 700px;
+            }
+
+            .form-section,
+            .help-section {
+                margin-bottom: 20px;
+            }
+
+            h2,
+            h3 {
+                color: #333;
+            }
+
+            .form-step {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #666;
+            }
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            .help-section {
+                border-top: 1px solid #ccc;
+                padding-top: 20px;
+            }
+
+            .help-section h3 {
+                margin-top: 0;
+            }
+
+            .help-section p {
+                margin: 5px 0;
+            }
+
+            .help-section a {
+                color: #007BFF;
+            }
+
+            .help-section a:hover {
+                text-decoration: underline;
+            }
+
+            .button-group {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+            }
+
+            .add-document-btn {
+                display: block;
+                margin-bottom: 10px;
+            }
+        </style>
+
+        <script>
+            function updateDocumentType() {
+                const documentCategory = document.getElementById('document-category').value;
+                const documentType = document.getElementById('document-type');
+
+                const personalOptions = `
+                <option value="adoption-records">Adoption Records / Dossier</option>
+                <option value="birth-certificate">Birth Certificates</option>
+                <option value="death-certificates">Death Certificates</option>
+                <option value="diploma">Diploma</option>
+                <option value="divorce-decrees">Divorce Decrees</option>
+                <option value="driver-licence">Driver's Licences</option>
+                <option value="marriage-certificates">Marriage Certificates</option>
+                <option value="passport">Passport</option>
+                <option value="power-of-attorney">Power Of Attorney</option>
+                <option value="state-background">State Background</option>
+                <option value="state-id">State ID</option>
+                <option value="single-status-affidavit">Single Status Affidavit</option>
+                <option value="transcript">Transcript</option>
+                <option value="visas">Visas</option>
+                <option value="voter-registeration-cards">Voter Registeration Cards</option>
+            `;
+
+                const businessOptions = `
+                <option value="article-of-incorporation">Article of Incorporation</option>
+                <option value="bank-statement">Bank Statement</option>
+                <option value="bill-of-sale">Bill of Sale</option>
+                <option value="business-licence">Business Licence</option>
+                <option value="bylaws">Bylaws</option>
+                <option value="certificate-of-amendment">Certificate of Amendment</option>
+                <option value="certificate-of-existence">Certificate of Existence</option>
+                <option value="certificate-of-good-standing">Certificate of Good Standing</option>
+                <option value="commercial-invoices-articles-of-incorporation">Commercial Invoices Articles of Incorporation</option>
+                <option value="contracts">Contracts</option>
+                <option value="declaration">Declaration</option>
+                <option value="deeds">Deeds</option>
+                <option value="financial-statements">Financial Statements</option>
+                <option value="incorporation-certificates">Incorporation Certificates</option>
+                <option value="leases">Leases</option>
+                <option value="licenses-and-permits">Licenses and Permits</option>
+                <option value="minutes-of-meetings">Minutes of Meetings</option>
+                <option value="mortgages">Mortgages</option>
+                <option value="power-of-attorney">Power of Attorney</option>
+                <option value="tax-returns">Tax Returns</option>
+            `;
+
+                const federalOptions = `
+                <option value="certificate-of-neutralization">Certificate of Neutralization</option>
+                <option value="consular-report-of-birth-abroad">Consular Report of Birth Abroad</option>
+                <option value="fda-document">FDA Document</option>
+                <option value="federal-background-checks">Federal Background Checks/Clearance</option>
+                <option value="irs-document">IRS Document</option>
+                <option value="pertition-for-name-change-affidavit">Pertition for Name Change Affidavit</option>
+                <option value="social-security-income-and-benefits">Social Security Income and Benefits</option>
+                <option value="social-security-letter">Social Security Letter</option>
+                <option value="usda-letter">USDA Letter</option>
+            `;
+
+                let options = '<option value="">Select Document Type</option>';
+
+                if (documentCategory === 'personal') {
+                    options += personalOptions;
+                } else if (documentCategory === 'business') {
+                    options += businessOptions;
+                } else if (documentCategory === 'federal') {
+                    options += federalOptions;
+                }
+
+                documentType.innerHTML = options;
+            }
+
+            function nextStep(step) {
+                const steps = document.querySelectorAll('.form-step');
+                let canProceed = true;
+
+                // Validate current step before proceeding
+                const currentStep = document.querySelector(`.form-step:nth-child(${step})`);
+                const inputs = currentStep.querySelectorAll('input[required], select[required], textarea[required]');
+                inputs.forEach(input => {
+                    if (!input.value) {
+                        input.style.borderColor = 'red';
+                        canProceed = false;
+                    } else {
+                        input.style.borderColor = '';
+                    }
+                });
+
+                if (canProceed) {
+                    steps.forEach((stepDiv, index) => {
+                        stepDiv.style.display = (index + 1 === step) ? 'block' : 'none';
+                    });
+                } else {
+                    alert('Please fill out all required fields before proceeding.');
+                }
+            }
+        </script>
+</body>
+
+</html>
