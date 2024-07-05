@@ -384,29 +384,27 @@
             }
 
             function nextStep(step) {
-                const steps = document.querySelectorAll('.form-step');
-                let canProceed = true;
+            const currentStep = document.querySelector('.form-step:not([style*="display: none"])');
+            const inputs = currentStep.querySelectorAll('input[required], select[required], textarea[required]');
 
-                // Validate current step before proceeding
-                const currentStep = document.querySelector(`.form-step:nth-child(${step})`);
-                const inputs = currentStep.querySelectorAll('input[required], select[required], textarea[required]');
-                inputs.forEach(input => {
-                    if (!input.value) {
-                        input.style.borderColor = 'red';
-                        canProceed = false;
-                    } else {
-                        input.style.borderColor = '';
-                    }
-                });
-
-                if (canProceed) {
-                    steps.forEach((stepDiv, index) => {
-                        stepDiv.style.display = (index + 1 === step) ? 'block' : 'none';
-                    });
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (!input.value) {
+                    allFilled = false;
+                    input.classList.add('error');
                 } else {
-                    alert('Please fill out all required fields before proceeding.');
+                    input.classList.remove('error');
                 }
+            });
+
+            if (allFilled) {
+                currentStep.style.display = 'none';
+                document.getElementById(`step-${step}`).style.display = 'block';
+            } else {
+                alert('Please fill out all required fields.');
             }
+        }
+
         </script>
 </body>
 
