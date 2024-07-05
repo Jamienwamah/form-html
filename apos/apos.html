@@ -384,30 +384,56 @@
             }
 
             function nextStep(step) {
-                const steps = document.querySelectorAll('.form-step');
-                let canProceed = true;
-
-                // Validate current step before proceeding
-                const currentStep = document.querySelector(`.form-step:nth-child(${step})`);
-                const inputs = currentStep.querySelectorAll('input[required], select[required], textarea[required]');
-                inputs.forEach(input => {
-                    if (!input.value) {
-                        input.style.borderColor = 'red';
-                        canProceed = false;
-                    } else {
-                        input.style.borderColor = '';
-                    }
-                });
-
-                if (canProceed) {
-                    steps.forEach((stepDiv, index) => {
-                        stepDiv.style.display = (index + 1 === step) ? 'block' : 'none';
-                    });
-                } else {
-                    alert('Please fill out all required fields before proceeding.');
-                }
+            var steps = document.getElementsByClassName('form-step');
+            for (var i = 0; i < steps.length; i++) {
+                steps[i].style.display = 'none';
             }
-        </script>
+            document.getElementById('step-' + step).style.display = 'block';
+        }
+
+        function updateDocumentType() {
+            var category = document.getElementById('document-category').value;
+            var documentTypeSelect = document.getElementById('document-type');
+            documentTypeSelect.innerHTML = '';
+
+            var options = [];
+            if (category === 'personal') {
+                options = [
+                    'Birth Certificate', 'Marriage Certificate'
+                    // Add other personal document types here
+                ];
+            } else if (category === 'business') {
+                options = [
+                    'Business License', 'Certificate of Incorporation'
+                    // Add other business document types here
+                ];
+            } else if (category === 'federal') {
+                options = [
+                    'FBI Background Check', 'IRS Documents'
+                    // Add other federal document types here
+                ];
+            }
+
+            options.forEach(function (option) {
+                var opt = document.createElement('option');
+                opt.value = option;
+                opt.innerHTML = option;
+                documentTypeSelect.appendChild(opt);
+            });
+        }
+
+        document.querySelector('.add-document-btn').addEventListener('click', function () {
+            var documentTypeContainer = document.createElement('div');
+            documentTypeContainer.innerHTML = `
+                <label for="document-type">Next Document</label>
+                <select id="document-type" required>
+                    <option value="">Select Document Type</option>
+                </select>
+            `;
+            document.querySelector('.form-step[id="step-2"]').appendChild(documentTypeContainer);
+            updateDocumentType();
+        });
+    </script>
 </body>
 
 </html>
