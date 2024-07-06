@@ -17,7 +17,7 @@
                     currently available.</p>
                 <label for="country">Which foreign country (not the US) are the documents intended for?</label>
                 <select id="country" required=>
-                    <option value="">---</option>
+                    <option value="">select country</option>
                     <option value="afghanistan">Afghanistan</option>
                     <option value="albania">Albania</option>
                     <option value="algeria">Algeria</option>
@@ -44,44 +44,77 @@
                     <input type="radio" name="translated" value="no"> No
                 </label>
 
-                <button onclick="nextStep(2)">Next</button>
+                <div class="button-group">
+                    <button onclick="nextStep(2)">Next</button>
+                </div>
             </div>
 
             <div class="form-step" id="step-2" style="display:none;">
                 <h3>Step 2: Documents</h3>
-                <label for="document-category">Document Category</label>
-                <select id="document-category" onchange="updateDocumentType()" required>
-                    <option value="">---</option>
-                    <option value="personal">Personal</option>
-                    <option value="business">Business</option>
-                    <option value="federal">Federal</option>
-                </select>
+                <div id="document-container">
+                    <div class="document-form">
+                        <label for="document-category">Document Category</label>
+                        <select id="document-category" onchange="updateDocumentType()" required>
+                            <option value="">select category</option>
+                            <option value="personal">Personal</option>
+                            <option value="business">Business</option>
+                            <option value="federal">Federal</option>
+                        </select>
 
-                <label for="document-type">1st Document:</label>
-                <select id="document-type" required>
-                    <option value="">Select Document Type</option>
-                </select>
+                        <label for="document-type">1st Document:</label>
+                        <select id="document-type" required>
+                            <option value="">Select Document Type</option>
+                        </select>
 
-                <label for="service">Select service</label>
-                <select id="service" required>
-                    <option value="">---</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)
-                    </option>
-                    <option value="$350-federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
-                </select>
+                        <label for="pages-number">How many pages require notarization?</label>
+                        <select id="pages-number" required>
+                            <option value="select page">---</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <!-- Add other options here -->
+                        </select>
 
-                <label for="document-status">Please tell us the status of your document</label>
-                <select id="document-status" required>
-                    <option value="">---</option>
-                    <option value="i-need-to-notarize-my-document">I need to notarize my document. Send me the
-                        notarization format</option>
-                    <!-- Add status options here -->
-                </select>
+                        <label for="service">Select service</label>
+                        <select id="service" required>
+                            <option value="">select service</option>
+                            <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12
+                                weeks)
+                            </option>
+                            <option value="$350-federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                        </select>
 
-                <button class="add-document-btn">Add a document</button>
+                        <label for="document-status">Please tell us the status of your document</label>
+                        <select id="document-status" required>
+                            <option value="">select document status</option>
+                            <option value="i-need-to-notarize-my-document">I need to notarize my document. Send me the
+                                notarization format</option>
+                            <!-- Add status options here -->
+                        </select>
+                    </div>
+                </div>
+
+                <button type="button" onclick="addDocument()">Add Document</button>
 
                 <div class="button-group">
-                    <button onclick="nextStep(1)">Back</button>
+                    <button onclick="previousStep(1)">Back</button>
                     <button onclick="nextStep(3)">Next</button>
                 </div>
             </div>
@@ -119,7 +152,7 @@
                 <input type="text" id="country" required>
 
                 <div class="button-group">
-                    <button onclick="nextStep(2)">Back</button>
+                    <button onclick="previousStep(2)">Back</button>
                     <button onclick="nextStep(4)">Next</button>
                 </div>
             </div>
@@ -132,10 +165,12 @@
                 <label for="comments">Comments</label>
                 <textarea id="comments"></textarea>
 
-                <p>Please include any details about the person we are serving, i.e. physical description, work hours, if
+                <p>Please include any details about the person we are serving, i.e. physical description, work
+                    hours, if
                     they are expected to avoid service, car they drive, etc.</p>
 
-                <label for="upload-files">Please upload your files so that we can review and avoid any delays</label>
+                <label for="upload-files">Please upload your files so that we can review and avoid any
+                    delays</label>
                 <h3>Upload files:</h3>
                 <input type="file" id="upload-files" multiple required>
                 <input type="file" id="upload-files" multiple required>
@@ -143,7 +178,7 @@
 
 
                 <div class="button-group">
-                    <button onclick="nextStep(3)">Back</button>
+                    <button onclick="previousStep(3)">Back</button>
                     <button onclick="nextStep(5)">Next</button>
                 </div>
             </div>
@@ -159,12 +194,6 @@
                 <label for="document-type-2">Please Provide the Name(s) of the Signer(s).</label>
                 <input type="text" id="document-type-2" required>
 
-                <label for="pages-number">How many pages require notarization?</label>
-                <select id="pages-number" required>
-                    <option value="1">1</option>
-                    <!-- Add other options here -->
-                </select>
-
                 <label for="address-entity">Address of person/entity being served</label>
                 <input type="text" id="address-entity" required>
 
@@ -173,7 +202,7 @@
                 </div>
 
                 <div class="button-group">
-                    <button onclick="nextStep(4)">Back</button>
+                    <button onclick="previousStep(4)">Back</button>
                     <button onclick="nextStep(6)">Next</button>
                 </div>
             </div>
@@ -206,17 +235,19 @@
                     <!-- Add other options here -->
                 </select>
 
-                <p>Please include any details about the person we are serving, i.e. physical description, work hours, if
+                <p>Please include any details about the person we are serving, i.e. physical description, work
+                    hours, if
                     they are expected to avoid service, car they drive, etc.</p>
 
-                <label for="upload-files">Please upload your files so that we can review and avoid any delays</label>
+                <label for="upload-files">Please upload your files so that we can review and avoid any
+                    delays</label>
                 <h3>Upload files:</h3>
                 <input type="file" id="upload-files" multiple required>
                 <input type="file" id="upload-files" multiple required>
                 <input type="file" id="upload-files" multiple required>
 
                 <div class="button-group">
-                    <button onclick="nextStep(5)">Back</button>
+                    <button onclick="previousStep(5)">Back</button>
                 </div>
 
                 <!-- New checkbox and terms & conditions link -->
@@ -274,9 +305,13 @@
             }
 
             label {
-                display: block;
-                margin-bottom: 5px;
-                color: #666;
+                display: inline-flex;
+                align-items: center;
+                margin-right: 15px;
+            }
+
+            input[type="radio"] {
+                margin-right: 5px;
             }
 
             input,
@@ -332,6 +367,13 @@
             .add-document-btn {
                 display: block;
                 margin-bottom: 10px;
+            }
+
+            .document-form {
+                margin-bottom: 20px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
             }
         </style>
 
@@ -415,6 +457,13 @@
                 currentStep.style.display = 'none';
                 nextStep.style.display = 'block';
             }
+            function previousStep(step) {
+                const currentStep = document.querySelector('.form-step:not([style*="display: none"])');
+                const prevStep = document.getElementById('step-' + step);
+
+                currentStep.style.display = 'none';
+                prevStep.style.display = 'block';
+            }
 
             function validateStep(step) {
                 const inputs = step.querySelectorAll('input, select, textarea');
@@ -425,6 +474,19 @@
                     }
                 }
                 return true;
+            }
+            function addDocument() {
+
+                var container = document.getElementById("document-container");
+                var newDocumentForm = container.firstElementChild.cloneNode(true);
+
+
+                newDocumentForm.querySelector("#document-category").value = "";
+                newDocumentForm.querySelector("#document-type").innerHTML = '<option value="">Select Document Type</option>';
+                newDocumentForm.querySelector("#pages-number").value = "";
+
+
+                container.appendChild(newDocumentForm);
             }
         </script>
 </body>
