@@ -16,33 +16,204 @@
                 <p>Please fill out the form and select your processing time. Our specialists will let you know if it is
                     currently available.</p>
                 <label for="country">Which foreign country (not the US) are the documents intended for?</label>
-                <select id="country" required=>
+                <select id="country" onchange="handleDocumentTypeChange2()" required=>
                     <option value="">select country</option>
                     <option value="afghanistan">Afghanistan</option>
-                    <option value="albania">Albania</option>
                     <option value="algeria">Algeria</option>
+                    <option value="albania">Abania</option>
                     <option value="andorra">Andorra</option>
+                    <option value="algeria">Algeria</option>
+                    <option value="angola">Angola</option>
+                    <option value="antigua">Antigua</option>
+                    <option value="algeria">Algeria</option>
+                    <option value="argentina">Argentina</option>
+                    <option value="armenia">Armenia</option>
+                    <option value="austria">Austria</option>
                     <option value="australia">Australia</option>
+                    <option value="azerbaijan">Azerbaijan</option>
+                    <option value="barbuda">Barbuda</option>
+                    <option value="bahamas">Bahamas</option>
+                    <option value="bahrain">Bahrain</option>
+                    <option value="barbados">Barbados</option>
+                    <option value="belarus">Belarus</option>
                     <option value="belgium">Belgium</option>
+                    <option value="belize">Belize</option>
+                    <option value="benin">Benin</option>
+                    <option value="bhutan">Bhutan</option>
+                    <option value="bolivia">Bolivia</option>
+                    <option value="bosnia">Bosnia</option>
+                    <option value="botswana">Botswana</option>
                     <option value="brazil">Brazil</option>
-                    <option value="colombia">Colombia</option>
-                    <option value="costa-rica">Costa Rica</option>
+                    <option value="brunei-darussalam">Brunei Darussalam</option>
+                    <option value="bulgeria">Bulgeria</option>
+                    <option value="burkina-faso">Burkina Faso</option>
+                    <option value="cabo-verde">Cabo Verde</option>
+                    <option value="cambodia">Cambodia</option>
                     <option value="canada">Canada</option>
+                    <option value="cameroon">Cameroon</option>
+                    <option value="central-african-republic">Central African Republic</option>
+                    <option value="chad">Chad</option>
+                    <option value="chile">Chile</option>
+                    <option value="china">China</option>
+                    <option value="comoros">Comoros</option>
+                    <option value="congo">Congo (Brazzaville)</option>
+                    <option value="congo-kinshasa">Congo (Kinshasa)</option>
+                    <option value="comoros">Comoros</option>
+                    <option value="costa-rica">Costa Rica</option>
+                    <option value="croatia">Croatia</option>
+                    <option value="cuba">Cuba</option>
+                    <option value="cyprus">Cyprus</option>
+                    <option value="czech-republic">Czech Republic</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="djibouti">Djibouti</option>
+                    <option value="dominica">Dominica</option>
+                    <option value="dominican-republic">Dominican Republic</option>
+                    <option value="ecuador">Ecuador</option>
+                    <option value="egypt">Egypt</option>
+                    <option value="el-salvador">El Salvador</option>
+                    <option value="equatorial-guinea">Equatorial Guinea</option>
+                    <option value="eritrea">Eritrea</option>
+                    <option value="estonia">Estonia</option>
+                    <option value="eswatini">Eswatini (Swaziland)</option>
+                    <option value="ethiopia">Ethiopia</option>
+                    <option value="fiji">Fiji</option>
+                    <option value="finland">Finland</option>
+                    <option value="france">France</option>
+                    <option value="gabon">Gabon</option>
+                    <option value="gambia">Gambia</option>
+                    <option value="georgia">Georgia</option>
                     <option value="germany">Germany</option>
                     <option value="ghana">Ghana</option>
+                    <option value="greece">Greece</option>
+                    <option value="grenada">Grenada</option>
+                    <option value="guatemala">Guatemala</option>
+                    <option value="guinea">Guinea</option>
+                    <option value="guinea-bissau">Guinea-Bissau</option>
+                    <option value="guyana">Guyana</option>
+                    <option value="haiti">Haiti</option>
+                    <option value="hong-kong">Hong Kong SAR</option>
+                    <option value="houduras">Houduras</option>
+                    <option value="hungary">Hungary</option>
+                    <option value="iceland">Iceland</option>
+                    <option value="indonesia">Indonesia</option>
+                    <option value="iraq">Iraq, Islamic Republic</option>
+                    <option value="iran">Iran</option>
+                    <option value="ireland">Ireland</option>
+                    <option value="isreal">Isreal</option>
+                    <option value="italy">Italy</option>
+                    <option value="ivory-coast">Ivory Coast (Cote d'Ivoire)</option>
+                    <option value="jamiaca">Jamiaca</option>
+                    <option value="japan">Japan</option>
+                    <option value="jordan">Jordan</option>
+                    <option value="kazakhstan">Kazakhstan</option>
                     <option value="kenya">Kenya</option>
+                    <option value="korea-democratic-people">Korea, Democratic People's Republic of</option>
+                    <option value="korea-republic">Korea, Republic of</option>
+                    <option value="kosovo">Kosovo</option>
+                    <option value="kuwait">Kuwait</option>
+                    <option value="kyrgyzstan">Kyrgyzstan</option>
+                    <option value="laos">Laos</option>
+                    <option value="latvia">Latvia</option>
+                    <option value="liberia">Liberia</option>
+                    <option value="lebanon">Lebanon</option>
+                    <option value="libya">Libya</option>
+                    <option value="liechtenstein">Liechtenstein</option>
+                    <option value="lithuania">Lithuania</option>
+                    <option value="luxembourg">Luxembourg</option>
+                    <option value="macao">Macao SAR</option>
+                    <option value="madagascar">Madagascar</option>
+                    <option value="Malawi">Malawi</option>
+                    <option value="malaysia">Malaysia</option>
+                    <option value="maldives">Maldives</option>
+                    <option value="mali">Mali</option>
+                    <option value="malta">Malta</option>
+                    <option value="marshall">Marshall Islands</option>
+                    <option value="mauritania">Mauritania</option>
+                    <option value="mauritius">Mauritius</option>
+                    <option value="mexico">Mexico</option>
+                    <option value="micronesia">Micronesia, Federated States of</option>
+                    <option value="moldova">Moldova, Republic of</option>
+                    <option value="monaco">Monaco</option>
+                    <option value="mongolia">Mongolia</option>
+                    <option value="montenegro">Montenegro</option>
+                    <option value="morocco">Morocco</option>
+                    <option value="macao-sar">Macao SAR</option>
+                    <option value="mozambique">Mozambique</option>
+                    <option value="myanmur">Myanmur</option>
+                    <option value="namibia">Namibia</option>
+                    <option value="nauru">Nauru</option>
+                    <option value="nepal">Nepal</option>
+                    <option value="netherlands">Netherlands</option>
+                    <option value="new-zealand">New Zealand</option>
+                    <option value="nicaragua">Nicaragua</option>
+                    <option value="niger">Niger</option>
                     <option value="nigeria">Nigeria</option>
+                    <option value="north-macedonia">North Macedonia</option>
+                    <option value="norway">Norway</option>
+                    <option value="oman">Oman</option>
+                    <option value="pakistan">Pakistan</option>
+                    <option value="palau">Palau</option>
+                    <option value="panama">Panama</option>
+                    <option value="papua">Papua New Guinea</option>
+                    <option value="paraguay">Paraguay</option>
+                    <option value="peru">Peru</option>
+                    <option value="philippines">Philippines</option>
+                    <option value="poland">Poland</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="qatar">Qatar</option>
+                    <option value="romania">Romania</option>
+                    <option value="russian">Russian Federation</option>
+                    <option value="rwanda">Rwanda</option>
+                    <option value="saint-kitts-and-nevis">Saint Kitts and Nevis</option>
+                    <option value="saint-lucia">Saint Lucia</option>
+                    <option value="saint-vincent">Saint Vincent and the Grenadines</option>
+                    <option value="samoa">Samoa</option>
+                    <option value="san-marino">San Marino</option>
+                    <option value="sao-tome">Sao Tome ad Principe</option>
+                    <option value="saudi-arabia">Saudi Arabia</option>
+                    <option value="senegal">Senegal</option>
+                    <option value="serbia">Serbia</option>
+                    <option value="seychelles">Seychelles</option>
+                    <option value="sierra-leone">Sierra Leone</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="slovakia">Slovakia</option>
+                    <option value="slovenia">Slovenia</option>
+                    <option value="solomon-island">Solomon Islands</option>
+                    <option value="somalia">Somalia</option>
+                    <option value="south-africa">South Africa</option>
+                    <option value="south-sudan">South Sudan</option>
+                    <option value="spain">Spain</option>
+                    <option value="sri-lanka">Sri Lanka</option>
+                    <option value="sudan">Sudan</option>
+                    <option value="suriname">Suriname</option>
+                    <option value="sweden">Sweden</option>
+                    <option value="switzerland">Switzerland</option>
+                    <option value="syria">Syrian Arab Republic</option>
+                    <option value="tajikistan">Tajikistan</option>
+                    <option value="tanzania">Tanzania United Republic of</option>
+                    <option value="thailand">Thailand</option>
+                    <option value="timor-leste">Timor-Leste</option>
+                    <option value="togo">Togo</option>
+                    <option value="tongo">Tonga</option>
+                    <option value="trinidad-and-tobago">Trinidad and Tobago</option>
+                    <option value="nepal">Tunisia</option>
+                    <option value="nepal">Turkey</option>
+                    <option value="turkmenistan">Turkmenistan</option>
+                    <option value="tuvalu">Tuvalu</option>
+                    <option value="uganda">Uganda</option>
+                    <option value="ukraine">Ukraine</option>
+                    <option value="united-arab-emirates">United Arab Emirates</option>
+                    <option value="united-kingdom">United Kingdom of Great Britain Northern Ireland</option>
+                    <option value="uruguay">Uruguay</option>
+                    <option value="uzbekistan">Uzbekistan</option>
+                    <option value="vanuatu">Vanuatu</option>
+                    <option value="venezuela">Venezuela</option>
                     <option value="vietnam">Vietnam</option>
-                    <option value="united-states">United States</option>
-                    <option value="united-kingdom">United Kingdom</option>
+                    <option value="yemen">Yemen</option>
+                    <option value="zambia">Zambia</option>
+                    <option value="zimbabwe">Zimbabwe</option>
 
                 </select>
-                <p>Do you need your documents translated?</p>
-
-                <label>
-                    <input type="radio" name="translated" value="yes"> Yes
-                    <input type="radio" name="translated" value="no"> No
-                </label>
 
                 <div class="button-group">
                     <button onclick="nextStep(2)">Next</button>
@@ -50,23 +221,11 @@
             </div>
 
             <div class="form-step" id="step-2" style="display:none;">
-                <h3>Step 2: Documents</h3>
+                <h3>Step 2: 1st Documents</h3>
                 <div id="document-container">
                     <div class="document-form">
-                        <label for="document-category">Document Category</label>
-                        <select id="document-category" onchange="updateDocumentType()" required>
-                            <option value="">select category</option>
-                            <option value="personal">Personal</option>
-                            <option value="business">Business</option>
-                            <option value="federal">Federal</option>
-                        </select>
-
-                        <label for="document-type">1st Document:</label>
-                        <select id="document-type" required>
-                            <option value="">Select Document Type</option>
-                        </select>
-
-                        <label for="pages-number">How many pages require notarization?</label>
+                        <!-- <select id="document-type" onchange="updateServiceOption()" required></select> -->
+                        <label for="pages-number">How many pages require apostille/Legalization?</label>
                         <select id="pages-number" required>
                             <option value="select page">---</option>
                             <option value="1">1</option>
@@ -91,23 +250,109 @@
                             <option value="20">20</option>
                             <!-- Add other options here -->
                         </select>
+                        <select id="document-type" onchange="handleDocumentTypeChange()" required>
+                            <option value="">Choose</option>
+                            <optgroup label="Personal Documents:">
+                                <option value="adoption-records">Adoption Records / Dossier</option>
+                                <option value="birth-certificates">Birth Certificates</option>
+                                <option value="death-certificates">Death Certificates</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="divorce-decrees">Divorce Decrees</option>
+                                <option value="driver-licence">Driver's Licenses</option>
+                                <option value="marriage-certificates">Marriage Certificates</option>
+                                <option value="passport">Passport</option>
+                                <option value="power-of-attorney">Power of Attorney</option>
+                                <option value="state-background">State Background</option>
+                                <option value="state-id">State ID</option>
+                                <option value="single-status-affidavit">Single Status Affidavit</option>
+                                <option value="transcript">Transcript</option>
+                                <option value="visas">Visas</option>
+                                <option value="voter-registration-cards">Voter Registration Cards</option>
+                            </optgroup>
+                            <optgroup label="Business Documents:">
+                                <option value="article-of-incorporation">Article of Incorporation</option>
+                                <option value="bank-statement">Bank Statement</option>
+                                <option value="bill-of-sale">Bill of Sale</option>
+                                <option value="business-licence">Business Licence</option>
+                                <option value="bylaws">Bylaws</option>
+                                <option value="certificate-of-amendment">Certificate of Amendment</option>
+                                <option value="certificate-of-existence">Certificate of Existence</option>
+                                <option value="certificate-of-good-standing">Certificate of Good Standing</option>
+                                <option value="commercial-invoices-articles-of-incorporation">Commercial Invoices
+                                    Articles of Incorporation</option>
+                                <option value="contracts">Contracts</option>
+                                <option value="declaration">Declaration</option>
+                                <option value="deeds">Deeds</option>
+                                <option value="financial-statements">Financial Statements</option>
+                                <option value="incorporation-certificates">Incorporation Certificates</option>
+                                <option value="leases">Leases</option>
+                                <option value="licenses-and-permits">Licenses and Permits</option>
+                                <option value="minutes-of-meetings">Minutes of Meetings</option>
+                                <option value="mortgages">Mortgages</option>
+                                <option value="power-of-attorney">Power of Attorney</option>
+                                <option value="tax-returns">Tax Returns</option>
+                            </optgroup>
+                            <optgroup label="Federal Documents:">
+                                <option value="certificate-of-neutralization">Certificate of Neutralization</option>
+                                <option value="consular-report-of-birth-abroad">Consular Report of Birth Abroad</option>
+                                <option value="fda-document">FDA Document</option>
+                                <option value="federal-background-checks">Federal Background Checks/Clearance</option>
+                                <option value="irs-document">IRS Document</option>
+                                <option value="petition-for-name-change-affidavit">Petition for Name Change Affidavit
+                                </option>
+                                <option value="social-security-income-and-benefits">Social Security Income and Benefits
+                                </option>
+                                <option value="social-security-letter">Social Security Letter</option>
+                                <option value="usda-letter">USDA Letter</option>
+                            </optgroup>
+                        </select>
 
-                        <label for="service">Select service</label>
+
+                        <label for="service">Select Service:</label>
                         <select id="service" required>
-                            <option value="">select service</option>
-                            <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12
-                                weeks)
-                            </option>
-                            <option value="$350-federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                            <option value="">Select Service Option</option>
                         </select>
 
-                        <label for="document-status">Please tell us the status of your document</label>
-                        <select id="document-status" required>
-                            <option value="">select document status</option>
-                            <option value="i-need-to-notarize-my-document">I need to notarize my document. Send me the
-                                notarization format</option>
-                            <!-- Add status options here -->
-                        </select>
+                        <div id="status-show" style="display: none;">
+                            <label for="status">Please tell us the status of your document</label>
+                            <select id="status" required>
+                                <option value="">Select Status Option</option>
+                            </select>
+                        </div>
+                        <!----Clients with cosular report-->
+                        <div id="consular-message">
+                            <p>Was your Consular Report Of Birth Abroad Issued Within Five Years?</p>
+
+
+                            <label>
+                                <input type="radio" name="translated" value="yes" required> Yes
+                                <input type="radio" name="translated" value="no" required> No
+                            </label>
+                            <div id="yes" style="color: red; display: none;">As your document was issued within the past
+                                five years, the processing fee from the US State Department is waived</div>
+                            <div id="no" style="color: red; display: none;">For consular Reports of birth
+                                abroad issued earlier that five years ago, a 50$ US sate department processing fee will
+                                be
+                                applicable</div>
+                        </div>
+                        <div id="apostilleQuestion" style="display: none;">
+                            <p>Has your document been issued an Apostille from the Secretary of State?</p>
+                            <label>
+                                <input type="radio" name="translated" value="yes" required onclick="checkApostille()">
+                                Yes
+                            </label>
+                            <label>
+                                <input type="radio" name="translated" value="no" required onclick="checkApostille()"> No
+                            </label>
+                            <div id="error-message" style="color: red; display: none;">It is required that your document
+                                be
+                                issued an
+                                Apostille from the Secretary of State?.</div>
+                            <div id="error-message" class="error-message">
+                                <img src="https://via.placeholder.com/20" alt="Error" class="error-icon">
+                                An apostille from the Secretary of State is required.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -136,8 +381,8 @@
                 <label for="address">Desired Address of Signing</label>
                 <input type="text" id="address" required>
 
-                <label for="unit-number">Booking Number</label>
-                <input type="text" id="unit-number">
+                <!-- <label for="unit-number">Booking Number</label>
+                <input type="text" id="unit-number"> -->
 
                 <label for="city">City</label>
                 <input type="text" id="city" required>
@@ -179,7 +424,7 @@
 
                 <div class="button-group">
                     <button onclick="previousStep(3)">Back</button>
-                    <button onclick="nextStep(5)">Next</button>
+                    <button onclick="previousStep(5)">Next</button>
                 </div>
             </div>
 
@@ -375,79 +620,56 @@
                 border: 1px solid #ccc;
                 border-radius: 4px;
             }
+
+            .error-message {
+                color: red;
+                display: none;
+                margin-top: 10px;
+            }
+
+            .error-icon {
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+            .remove-button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: red;
+                cursor: pointer;
+            }
+
+            .consular-message {
+                display: none;
+                margin-top: 10px;
+            }
+
+            #yes,
+            #no {
+                margin-top: 10px;
+                font-style: italic;
+                color: red;
+            }
         </style>
 
         <script>
-            function updateDocumentType() {
-                const documentCategory = document.getElementById('document-category').value;
-                const documentType = document.getElementById('document-type');
+            // function toggleDocumentTypes(categoryId) {
+            //     const categories = document.querySelectorAll('.document-category');
+            //     categories.forEach(category => {
+            //         const typeId = category.getAttribute('data-type-id');
+            //         const types = document.querySelector(`.document-type[data-type-id="${typeId}"]`);
 
-                const personalOptions = `
-                <option value="adoption-records">Adoption Records / Dossier</option>
-                <option value="birth-certificate">Birth Certificates</option>
-                <option value="death-certificates">Death Certificates</option>
-                <option value="diploma">Diploma</option>
-                <option value="divorce-decrees">Divorce Decrees</option>
-                <option value="driver-licence">Driver's Licences</option>
-                <option value="marriage-certificates">Marriage Certificates</option>
-                <option value="passport">Passport</option>
-                <option value="power-of-attorney">Power Of Attorney</option>
-                <option value="state-background">State Background</option>
-                <option value="state-id">State ID</option>
-                <option value="single-status-affidavit">Single Status Affidavit</option>
-                <option value="transcript">Transcript</option>
-                <option value="visas">Visas</option>
-                <option value="voter-registeration-cards">Voter Registeration Cards</option>
-            `;
-
-                const businessOptions = `
-                <option value="article-of-incorporation">Article of Incorporation</option>
-                <option value="bank-statement">Bank Statement</option>
-                <option value="bill-of-sale">Bill of Sale</option>
-                <option value="business-licence">Business Licence</option>
-                <option value="bylaws">Bylaws</option>
-                <option value="certificate-of-amendment">Certificate of Amendment</option>
-                <option value="certificate-of-existence">Certificate of Existence</option>
-                <option value="certificate-of-good-standing">Certificate of Good Standing</option>
-                <option value="commercial-invoices-articles-of-incorporation">Commercial Invoices Articles of Incorporation</option>
-                <option value="contracts">Contracts</option>
-                <option value="declaration">Declaration</option>
-                <option value="deeds">Deeds</option>
-                <option value="financial-statements">Financial Statements</option>
-                <option value="incorporation-certificates">Incorporation Certificates</option>
-                <option value="leases">Leases</option>
-                <option value="licenses-and-permits">Licenses and Permits</option>
-                <option value="minutes-of-meetings">Minutes of Meetings</option>
-                <option value="mortgages">Mortgages</option>
-                <option value="power-of-attorney">Power of Attorney</option>
-                <option value="tax-returns">Tax Returns</option>
-            `;
-
-                const federalOptions = `
-                <option value="certificate-of-neutralization">Certificate of Neutralization</option>
-                <option value="consular-report-of-birth-abroad">Consular Report of Birth Abroad</option>
-                <option value="fda-document">FDA Document</option>
-                <option value="federal-background-checks">Federal Background Checks/Clearance</option>
-                <option value="irs-document">IRS Document</option>
-                <option value="pertition-for-name-change-affidavit">Pertition for Name Change Affidavit</option>
-                <option value="social-security-income-and-benefits">Social Security Income and Benefits</option>
-                <option value="social-security-letter">Social Security Letter</option>
-                <option value="usda-letter">USDA Letter</option>
-            `;
-
-                let options = '<option value="">Select Document Type</option>';
-
-                if (documentCategory === 'personal') {
-                    options += personalOptions;
-                } else if (documentCategory === 'business') {
-                    options += businessOptions;
-                } else if (documentCategory === 'federal') {
-                    options += federalOptions;
-                }
-
-                documentType.innerHTML = options;
-            }
-
+            //         if (typeId === categoryId) {
+            //             types.classList.toggle('active');
+            //         } else {
+            //             types.classList.remove('active');
+            //         }
+            //     });
+            // }
             function nextStep(step) {
                 const currentStep = document.querySelector('.form-step:not([style*="display: none"])');
                 const nextStep = document.getElementById('step-' + step);
@@ -476,18 +698,2218 @@
                 return true;
             }
             function addDocument() {
-
                 var container = document.getElementById("document-container");
                 var newDocumentForm = container.firstElementChild.cloneNode(true);
 
-
-                newDocumentForm.querySelector("#document-category").value = "";
-                newDocumentForm.querySelector("#document-type").innerHTML = '<option value="">Select Document Type</option>';
+                newDocumentForm.querySelector("#document-form").innerHTML = '<option value="">Select Document Type</option>';
                 newDocumentForm.querySelector("#pages-number").value = "";
 
+                // Create and append remove button
+                var removeButton = document.createElement("button");
+                removeButton.innerText = "-";
+                removeButton.classList.add("remove-button");
+                removeButton.type = "button";
+                removeButton.onclick = function () {
+                    container.removeChild(newDocumentForm);
+                };
+                newDocumentForm.appendChild(removeButton);
 
                 container.appendChild(newDocumentForm);
             }
+
+            function updateServiceOption() {
+                const documentType = document.getElementById('document-type').value;
+                const serviceSelect = document.getElementById('service');
+
+                if (documentType === 'transcript') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'birth-certificates') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'adoption-records') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'death-certificates') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'marriage-certificates') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'diploma') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'divorce-decrees') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="$225-1-3-business-days">$350 - Federal and Embassy (8-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'driver-licence') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'passport') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+
+                } else if (documentType === 'state-background') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'state-id') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'single-status-affidavit') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'visas') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'voter-registeration-cards') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'article-of-incorporation') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+                    
+                }
+                `;
+                } else if (documentType === 'bank-statement') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+                }
+                `;
+                } else if (documentType === 'bill-of-sale') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'business-licence') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'bylaws') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+                }
+                `;
+                } else if (documentType === 'certificate-of-amendment') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'certificate-of-existence') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'certificate-of-good-standing') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'commercial-invoices-articles-of-incorporation') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'contracts') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'declaration') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'deeds') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'financial-statements') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'incorporation-certificates') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+                }
+                `;
+                } else if (documentType === 'leases') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+                }
+                `;
+                } else if (documentType === 'licenses-and-permits') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+                }
+                `;
+                } else if (documentType === 'minutes-of-meetings') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'mortgages') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'power-of-attorney') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'tax-returns') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
+
+                }
+                `;
+                } else if (documentType === 'certificate-of-neutralization') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy (8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else if (documentType === 'consular-report-of-birth-abroad') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$295-federal-and-embassy">$295 - Federal and Embassy (up to 9 weeks)</option>
+                    <option value="$175-up-to-8weeks">$175 - Up to 8 weeks</option>
+                }
+                `;
+                } else if (documentType === 'fda-document') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else if (documentType === 'federal-background-checks') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else if (documentType === 'irs-document') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else if (documentType === 'petition-for-name-change-affidavit') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else if (documentType === 'social-security-income-and-benefits') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else if (documentType === 'social-security-letter') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else if (documentType === 'usda-letter') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
+                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
+                }
+                `;
+                } else {
+                    serviceSelect.innerHTML = `
+                    <option value="">Select Service Option</option>
+                `;
+                }
+            }
+            function updateStatusOption() {
+                const documentType = document.getElementById('document-type').value;
+                const statusSelect = document.getElementById('status');
+
+                if (documentType === 'transcript') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="need-notarization">I will contact my school for a notarized  copy. Send me shipping instructions.</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'divorce-decrees') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State/option>
+                }tion>
+                }
+                    `;
+                } else if (documentType === 'adoption-records') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State/option>
+                }
+                    `;
+                } else if (documentType === 'diploma') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'marriage-certificates') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">I possess my document</option>
+                    <option value="need-notarization">I require assistence in acquiring my document. kindly provide me with guidiance on how to obtain my document and information on shipping services</option>
+                }
+                    `;
+                } else if (documentType === 'birth-certificates') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">I possess my document</option>
+                    <option value="need-notarization">I require assistence in acquiring my document. kindly provide me with guidiance on how to obtain my document and information on shipping services</option>
+                }
+                    `;
+                } else if (documentType === 'death-certificates') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">I possess my document</option>
+                    <option value="need-notarization">I require assistence in acquiring my document. kindly provide me with guidiance on how to obtain my document and information on shipping services</option>
+                }
+                    `;
+                } else if (documentType === 'passport') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'drivers-licence') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'power-of-attorney') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'state-background') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'state-id') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'single-status-affidavit') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'visas') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else if (documentType === 'voter-registration-cards') {
+                    statusSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="already-notarized">My document has been notarized</option>
+                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
+                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+                }
+                    `;
+                } else {
+                    statusSelect.innerHTML = `
+                    <option value="">Select Status Option</option>
+                `;
+                }
+
+            }
+            function updateCountryOption() {
+                const documentType = document.getElementById('country').value;
+                const serviceSelect = document.getElementById('service');
+                const displayApostilleQuestion = document.getElementById('apostilleQuestion');
+
+                if (documentType === 'albania') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'andorra') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'antigua') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'barbuda') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'argentina') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'armenia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'australia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'austria') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'azerbaijan') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'bahamas') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'bahrain') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'barbados') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'belarus') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'belgium') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'belize') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'bosnia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'herzegovina') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'botswana') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'brazil') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'brunei-darussalam') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'bulgaria') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'burundi') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'cabo-verde') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'chile') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'china-hong-kong') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'china-macao') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'colombia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'costa-rica') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'croatia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'cyprus') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'czech-republic') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'denmark') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'dominica') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'dominican-republic') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'ecuador') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'el-salvador') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'estonia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'eswatini') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'fiji') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'finland') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'france') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'georgia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'germany') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'greece') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'grenada') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'guatemala') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'guyana') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'honduras') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'hungary') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'iceland') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'india') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'ireland') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'israel') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'italy') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'jamaica') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'japan') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'kazakhstan') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'kosovo') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'kyrgyzstan') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'latvia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'lesotho') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'liberia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'liechtenstein') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'lithuania') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'luxembourg') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'malawi') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'malta') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'marshall-islands') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'mauritius') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'mexico') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'moldova') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'monaco') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'mongolia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'montenegro') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'morocco') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'namibia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'netherlands') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'new-zealand') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'nicaragua') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'north-macedonia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'norway') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'oman') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'panama') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'paraguay') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'peru') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'philippines') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'poland') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'portugal') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'romania') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'russian') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'saint-kitts-and-nevis') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'saint-lucia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'saint-vincent') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'samoa') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'san-marino') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'sao-tome') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'serbia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'seychelles') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'singapore') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'slovakia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'slovenia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'south-africa') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'spain') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'suriname') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'sweden') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'switzerland') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'tajikistan') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'tonga') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'trinidad-and-tobago') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'tunisia') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'turkey') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'ukraine') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'united-kingdom') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'uruguay') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'uzbekistan') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'vanuatu') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'venezuela') {
+                    serviceSelect.innerHTML = `
+                    <option value="">Choose</option>
+                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
+                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                    <option value="$275-Same-day">$275 - Same day</option>
+
+                }
+                `;
+                } else if (documentType === 'afghanistan') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'algeria') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'angola') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'bangladesh') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'benin') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'bhutan') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'bolivia') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'burkina-faso') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'cambodia') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'cameroon') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'canada') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'chad') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'china') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'comoros') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'congo') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'congo-kinshasa') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'cuba') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'djibouti') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'egypt') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'eritrea') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'ethiopia') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'ghana') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'guinea-bissau') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'indonesia') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'iran') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'iraq') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'ivory-coast') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'jordan') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'kenya') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'korea-democratic-people') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'kuwait') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'laos') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'lebanon') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'libya') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'madagascar') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'malaysia') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'mali') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'mauritania') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'mozambique') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'myanmar') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'nepal') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'niger') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'nigeria') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'pakistan') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'papua') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'qatar') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'rwanda') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'saudi-arabia') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'senegal') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'sierra-leone') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'sri-lanka') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'sudan') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'syria') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'tanzania') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'thailand') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'togo') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'turmenistan') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'uganda') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'united-arab-emerates') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'vietnam') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'yemen') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'zambia') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else if (documentType === 'zimbabwe') {
+                    serviceSelect.innerHTML = `
+                    <select id="serviceType" onchange="checkServiceType()">
+                    <option value="">Choose</option>
+                    <option value="standard-legalization">$450 - Standard Full Leegalization (10-12 weeks)</option>
+                    <option value="federal-and-embassy">$350 - Federal and Embassy (8-12 weeks)</option>
+                    </select>
+                }
+                `;
+                } else {
+                    serviceSelect.innerHTML = `
+                    <option value="">Select Service Option</option>
+                `;
+                    document.getElementById('apostilleQuestion').style.display = 'none';
+                }
+            }
+
+            function handleDocumentTypeChange() {
+                updateServiceOption();
+                updateStatusOption();
+            }
+            function handleDocumentTypeChange2() {
+                updateCountryOption();
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const radios = document.querySelectorAll('input[type="radio"][name="translated"]');
+                const yesMessage = document.getElementById('yes');
+                const noMessage = document.getElementById('no');
+                const documentTypeSelect = document.getElementById('document-type');
+                const consularMessage = document.getElementById('consular-message');
+
+                // Initially hide the consular message
+                consularMessage.style.display = 'none';
+
+                // Event listener for document type selection
+                documentTypeSelect.addEventListener('change', function () {
+                    const selectedOption = this.value;
+
+                    if (selectedOption === 'consular-report-of-birth-abroad') {
+                        consularMessage.style.display = 'block';
+                    } else {
+                        consularMessage.style.display = 'none';
+                        // Reset radio buttons and messages if another option is selected
+                        yesMessage.style.display = 'none';
+                        noMessage.style.display = 'none';
+                        radios.forEach(radio => radio.checked = false);
+                    }
+                });
+
+                // Event listener for radio button change handling
+                radios.forEach(function (radio) {
+                    radio.addEventListener('change', function () {
+                        if (this.value === 'yes') {
+                            yesMessage.style.display = 'block';
+                            noMessage.style.display = 'none';
+                        } else if (this.value === 'no') {
+                            yesMessage.style.display = 'none';
+                            noMessage.style.display = 'block';
+                        } else {
+                            yesMessage.style.display = 'none';
+                            noMessage.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const documentTypeSelect = document.getElementById('document-type');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                // Initially hide the status field
+                statusShow.style.display = 'none';
+
+                // Event listener for document type selection
+                documentTypeSelect.addEventListener('change', function () {
+                    const selectedOption = this.value;
+
+                    // Array of personal document options
+                    const personalDocuments = [
+                        'adoption-records',
+                        'birth-certificates',
+                        'death-certificates',
+                        'diploma',
+                        'divorce-decrees',
+                        'driver-licence',
+                        'marriage-certificates',
+                        'passport',
+                        'power-of-attorney',
+                        'state-background',
+                        'state-id',
+                        'single-status-affidavit',
+                        'transcript',
+                        'visas',
+                        'voter-registration-cards'
+                    ];
+
+                    // Check if selectedOption is in personalDocuments array
+                    if (personalDocuments.includes(selectedOption)) {
+                        statusShow.style.display = 'block';
+                        statusSelect.required = true;
+                    } else {
+                        statusShow.style.display = 'none';
+                        statusSelect.required = false;
+                        statusSelect.value = ''; // Reset status select value if hidden
+                    }
+                });
+            });
+
+
+
         </script>
 </body>
 
