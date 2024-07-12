@@ -221,7 +221,7 @@
             </div>
 
             <div class="form-step" id="step-2" style="display:none;">
-                <h3>Step 2: 1st Documents</h3>
+                <h3>Step 2: Documents</h3>
                 <div id="document-container">
                     <div class="document-form">
                         <!-- <select id="document-type" onchange="updateServiceOption()" required></select> -->
@@ -250,6 +250,7 @@
                             <option value="20">20</option>
                             <!-- Add other options here -->
                         </select>
+                        <label for="document-type">1st Document:</label>
                         <select id="document-type" onchange="handleDocumentTypeChange()" required>
                             <option value="">Choose</option>
                             <optgroup label="Personal Documents:">
@@ -261,7 +262,6 @@
                                 <option value="driver-licence">Driver's Licenses</option>
                                 <option value="marriage-certificates">Marriage Certificates</option>
                                 <option value="passport">Passport</option>
-                                <option value="power-of-attorney">Power of Attorney</option>
                                 <option value="state-background">State Background</option>
                                 <option value="state-id">State ID</option>
                                 <option value="single-status-affidavit">Single Status Affidavit</option>
@@ -657,19 +657,6 @@
         </style>
 
         <script>
-            // function toggleDocumentTypes(categoryId) {
-            //     const categories = document.querySelectorAll('.document-category');
-            //     categories.forEach(category => {
-            //         const typeId = category.getAttribute('data-type-id');
-            //         const types = document.querySelector(`.document-type[data-type-id="${typeId}"]`);
-
-            //         if (typeId === categoryId) {
-            //             types.classList.toggle('active');
-            //         } else {
-            //             types.classList.remove('active');
-            //         }
-            //     });
-            // }
             function nextStep(step) {
                 const currentStep = document.querySelector('.form-step:not([style*="display: none"])');
                 const nextStep = document.getElementById('step-' + step);
@@ -698,493 +685,97 @@
                 return true;
             }
             function addDocument() {
-                var container = document.getElementById("document-container");
-                var newDocumentForm = container.firstElementChild.cloneNode(true);
+                const container = document.getElementById('document-container');
+                const documentCount = container.children.length / 2 + 1; // Assuming each document has a label and select
 
-                newDocumentForm.querySelector("#document-form").innerHTML = '<option value="">Select Document Type</option>';
-                newDocumentForm.querySelector("#pages-number").value = "";
+                const label = document.createElement('label');
+                label.setAttribute('for', `document-type-${documentCount}`);
+                label.textContent = `${documentCount === 1 ? '1st' : documentCount === 2 ? '2nd' : documentCount === 3 ? '3rd' : documentCount + 'th'} Document:`;
 
-                // Create and append remove button
-                var removeButton = document.createElement("button");
-                removeButton.innerText = "-";
-                removeButton.classList.add("remove-button");
-                removeButton.type = "button";
-                removeButton.onclick = function () {
-                    container.removeChild(newDocumentForm);
-                };
-                newDocumentForm.appendChild(removeButton);
+                const select = document.createElement('select');
+                select.setAttribute('id', `document-type-${documentCount}`);
+                select.setAttribute('onchange', 'handleDocumentTypeChange()');
+                select.setAttribute('required', '');
+                select.innerHTML = `
+        <option value="">Choose</option>
+        <optgroup label="Personal Documents:">
+            <option value="adoption-records">Adoption Records / Dossier</option>
+            <option value="birth-certificates">Birth Certificates</option>
+            <option value="death-certificates">Death Certificates</option>
+            <option value="diploma">Diploma</option>
+            <option value="divorce-decrees">Divorce Decrees</option>
+            <option value="driver-licence">Driver's Licenses</option>
+            <option value="marriage-certificates">Marriage Certificates</option>
+            <option value="passport">Passport</option>
+            <option value="state-background">State Background</option>
+            <option value="state-id">State ID</option>
+            <option value="single-status-affidavit">Single Status Affidavit</option>
+            <option value="transcript">Transcript</option>
+            <option value="visas">Visas</option>
+            <option value="voter-registration-cards">Voter Registration Cards</option>
+        </optgroup>
+        <optgroup label="Business Documents:">
+            <option value="article-of-incorporation">Article of Incorporation</option>
+            <option value="bank-statement">Bank Statement</option>
+            <option value="bill-of-sale">Bill of Sale</option>
+            <option value="business-licence">Business Licence</option>
+            <option value="bylaws">Bylaws</option>
+            <option value="certificate-of-amendment">Certificate of Amendment</option>
+            <option value="certificate-of-existence">Certificate of Existence</option>
+            <option value="certificate-of-good-standing">Certificate of Good Standing</option>
+            <option value="commercial-invoices-articles-of-incorporation">Commercial Invoices
+                Articles of Incorporation</option>
+            <option value="contracts">Contracts</option>
+            <option value="declaration">Declaration</option>
+            <option value="deeds">Deeds</option>
+            <option value="financial-statements">Financial Statements</option>
+            <option value="incorporation-certificates">Incorporation Certificates</option>
+            <option value="leases">Leases</option>
+            <option value="licenses-and-permits">Licenses and Permits</option>
+            <option value="minutes-of-meetings">Minutes of Meetings</option>
+            <option value="mortgages">Mortgages</option>
+            <option value="power-of-attorney">Power of Attorney</option>
+            <option value="tax-returns">Tax Returns</option>
+        </optgroup>
+        <optgroup label="Federal Documents:">
+            <option value="certificate-of-neutralization">Certificate of Neutralization</option>
+            <option value="consular-report-of-birth-abroad">Consular Report of Birth Abroad</option>
+            <option value="fda-document">FDA Document</option>
+            <option value="federal-background-checks">Federal Background Checks/Clearance</option>
+            <option value="irs-document">IRS Document</option>
+            <option value="petition-for-name-change-affidavit">Petition for Name Change Affidavit
+            </option>
+            <option value="social-security-income-and-benefits">Social Security Income and Benefits
+            </option>
+            <option value="social-security-letter">Social Security Letter</option>
+            <option value="usda-letter">USDA Letter</option>
+        </optgroup>
+    `;
 
-                container.appendChild(newDocumentForm);
+                container.appendChild(label);
+                container.appendChild(select);
             }
 
-            function updateServiceOption() {
-                const documentType = document.getElementById('document-type').value;
-                const serviceSelect = document.getElementById('service');
-
-                if (documentType === 'transcript') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'birth-certificates') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'adoption-records') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'death-certificates') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'marriage-certificates') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'diploma') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'divorce-decrees') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$450 - Standard Full Leegalization (10-12 weeks)</option>
-                    <option value="$225-1-3-business-days">$350 - Federal and Embassy (8-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'driver-licence') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'passport') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-
-                } else if (documentType === 'state-background') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'state-id') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'single-status-affidavit') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'visas') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'voter-registeration-cards') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$175-4-14-buisness-days">$175 - 4-14 buisness days</option>
-                    <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
-                    <option value="$275-Same-day">$275 - Same day</option>
-
-                }
-                `;
-                } else if (documentType === 'article-of-incorporation') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-                    
-                }
-                `;
-                } else if (documentType === 'bank-statement') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-                }
-                `;
-                } else if (documentType === 'bill-of-sale') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'business-licence') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'bylaws') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-                }
-                `;
-                } else if (documentType === 'certificate-of-amendment') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'certificate-of-existence') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'certificate-of-good-standing') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'commercial-invoices-articles-of-incorporation') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'contracts') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'declaration') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'deeds') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'financial-statements') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'incorporation-certificates') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-                }
-                `;
-                } else if (documentType === 'leases') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-                }
-                `;
-                } else if (documentType === 'licenses-and-permits') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-                }
-                `;
-                } else if (documentType === 'minutes-of-meetings') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'mortgages') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'power-of-attorney') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'tax-returns') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$450-standard-full-legalization">$450 - Standard Full Legalization (10-12 weeks)</option>
-
-                }
-                `;
-                } else if (documentType === 'certificate-of-neutralization') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy (8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else if (documentType === 'consular-report-of-birth-abroad') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$295-federal-and-embassy">$295 - Federal and Embassy (up to 9 weeks)</option>
-                    <option value="$175-up-to-8weeks">$175 - Up to 8 weeks</option>
-                }
-                `;
-                } else if (documentType === 'fda-document') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else if (documentType === 'federal-background-checks') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else if (documentType === 'irs-document') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else if (documentType === 'petition-for-name-change-affidavit') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else if (documentType === 'social-security-income-and-benefits') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else if (documentType === 'social-security-letter') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else if (documentType === 'usda-letter') {
-                    serviceSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="$350-State-dept-and-embassy">$350 - State Dept and Embassy(8-12 weeks)</option>
-                    <option value="$175-1-2-weeks">$175 1-2 weeks</option>
-                }
-                `;
-                } else {
-                    serviceSelect.innerHTML = `
-                    <option value="">Select Service Option</option>
-                `;
-                }
+            function handleDocumentTypeChange() {
+                console.log('Document type changed');
             }
-            function updateStatusOption() {
-                const documentType = document.getElementById('document-type').value;
-                const statusSelect = document.getElementById('status');
 
-                if (documentType === 'transcript') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="need-notarization">I will contact my school for a notarized  copy. Send me shipping instructions.</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'divorce-decrees') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State/option>
-                }tion>
-                }
-                    `;
-                } else if (documentType === 'adoption-records') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State/option>
-                }
-                    `;
-                } else if (documentType === 'diploma') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'marriage-certificates') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">I possess my document</option>
-                    <option value="need-notarization">I require assistence in acquiring my document. kindly provide me with guidiance on how to obtain my document and information on shipping services</option>
-                }
-                    `;
-                } else if (documentType === 'birth-certificates') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">I possess my document</option>
-                    <option value="need-notarization">I require assistence in acquiring my document. kindly provide me with guidiance on how to obtain my document and information on shipping services</option>
-                }
-                    `;
-                } else if (documentType === 'death-certificates') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">I possess my document</option>
-                    <option value="need-notarization">I require assistence in acquiring my document. kindly provide me with guidiance on how to obtain my document and information on shipping services</option>
-                }
-                    `;
-                } else if (documentType === 'passport') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'drivers-licence') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'power-of-attorney') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'state-background') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'state-id') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'single-status-affidavit') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'visas') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else if (documentType === 'voter-registration-cards') {
-                    statusSelect.innerHTML = `
-                    <option value="">Choose</option>
-                    <option value="already-notarized">My document has been notarized</option>
-                    <option value="need-notarization">I require notarization for my document. Please provide me with the notarization format</option>
-                    <option value="already-notarized">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
-                }
-                    `;
-                } else {
-                    statusSelect.innerHTML = `
-                    <option value="">Select Status Option</option>
-                `;
-                }
+            function handleDocumentTypeChange() {
+                console.log('Document type changed');
+            }
 
+            function handleDocumentTypeChange() {
+                console.log('Document type changed');
+            }
+
+            function handleDocumentTypeChange() {
+                // Handle document type change if needed
+                console.log('Document type changed');
             }
             function updateCountryOption() {
                 const documentType = document.getElementById('country').value;
                 const serviceSelect = document.getElementById('service');
+                const documentTypes = document.getElementById('document-type').value;
                 const displayApostilleQuestion = document.getElementById('apostilleQuestion');
 
                 if (documentType === 'albania') {
@@ -2814,6 +2405,15 @@
                     document.getElementById('apostilleQuestion').style.display = 'none';
                 }
             }
+            // const selectedDocumentType = documentTypeSelect.value;
+            // if (selectedDocumentType) {
+            //     if (selectedDocumentType.startsWith('personal')) {
+            //         statusShow.style.display = 'block';
+            //     } else if (selectedDocumentType.startsWith('business')) {
+            //         apostilleQuestion.style.display = 'block';
+            //     }
+            // }
+
 
             function handleDocumentTypeChange() {
                 updateServiceOption();
@@ -2870,7 +2470,7 @@
                 const statusShow = document.getElementById('status-show');
                 const statusSelect = document.getElementById('status');
 
-                // Initially hide the status field
+                // // Initially hide the status field
                 statusShow.style.display = 'none';
 
                 // Event listener for document type selection
@@ -2907,6 +2507,849 @@
                     }
                 });
             });
+            // Implementation for apostille, when country is selected with personal document
+            // Function to update service options based on the selected country
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "albania", "andorra", "antigua-and-barbuda", "argentina", "armenia", "australia",
+                    "austria", "azerbaijan", "bahamas", "bahrain", "barbados", "belarus", "belgium",
+                    "belize", "bosnia-and-herzegovina", "botswana", "brazil", "brunei-darussalam",
+                    "bulgaria", "burundi", "cabo-verde", "chile", "china-hong-kong", "china-macao",
+                    "colombia", "cook-islands", "costa-rica", "croatia", "cyprus", "czech-republic",
+                    "denmark", "dominica", "dominican-republic", "ecuador", "el-salvador", "estonia",
+                    "eswatini-swaziland", "fiji", "finland", "france", "georgia", "germany", "greece",
+                    "grenada", "guatemala", "guyana", "honduras", "hungary", "iceland", "india",
+                    "ireland", "israel", "italy", "jamaica", "japan", "kazakhstan", "kosovo", "kyrgyzstan",
+                    "latvia", "lesotho", "liberia", "liechtenstein", "lithuania", "luxembourg", "malawi",
+                    "malta", "marshall-islands", "mauritius", "mexico", "moldova", "monaco", "mongolia",
+                    "montenegro", "morocco", "namibia", "netherlands", "new-zealand", "nicaragua",
+                    "north-macedonia", "norway", "oman", "panama", "paraguay", "peru", "philippines",
+                    "poland", "portugal", "romania", "russia", "saint-kitts-and-nevis", "saint-lucia",
+                    "saint-vincent-and-grenadines", "samoa", "san-marino", "sao-tome-and-principe",
+                    "serbia", "seychelles", "singapore", "slovakia", "slovenia", "south-africa", "spain",
+                    "suriname", "sweden", "switzerland", "tajikistan", "tonga", "trinidad-and-tobago",
+                    "tunisia", "turkey", "ukraine", "united-kingdom", "uruguay", "uzbekistan", "vanuatu",
+                    "venezuela"
+                ];
+
+                const personalDocuments = [
+                    'adoption-records', 'divorce-decrees', 'driver-licence', 'passport',
+                    'state-background', 'state-id', 'single-status-affidavit', 'transcript',
+                    'visas', 'voter-registration-cards'
+                ];
+
+                // Function to update service options based on selected country and document type
+                function updateOptions() {
+                    const selectedCountry = countrySelect.value.toLowerCase().replace(/ /g, '-');
+                    const selectedDocumentType = documentTypeSelect.value;
+
+                    // Reset service and status options
+                    serviceSelect.innerHTML = '<option value="">Choose</option>';
+                    statusSelect.innerHTML = '<option value="">Select Status Option</option>';
+
+                    // Update service options based on specific logic for certain countries
+                    if (specificCountries.includes(selectedCountry) && personalDocuments.includes(selectedDocumentType)) {
+                        serviceSelect.innerHTML = `
+                <option value="$175-4-14-business-days">$175 - 4-14 business days</option>
+                <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                <option value="$275-same-day">$275 - Same day</option>
+            `;
+                    }
+
+                    // Show or hide status options based on selected document type
+                    if (personalDocuments.includes(selectedDocumentType)) {
+                        statusShow.style.display = 'block';
+                        statusSelect.innerHTML = `
+                <option value="document_notarized">My document is notarized.</option>
+                <option value="need_notarization_format">I need to notarize my document. Send me the notarization format.</option>
+                <option value="request_one_source_process">Request One Source Process to notarize and apostille.</option>
+            `;
+                    } else {
+                        statusShow.style.display = 'none';
+                    }
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+            // //         // For Transcript and Diploma
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusField = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const countries = [
+                    "albania", "andorra", "antigua and barbuda", "argentina", "armenia", "australia", "austria", "azerbaijan",
+                    "bahamas", "bahrain", "barbados", "belarus", "belgium", "belize", "bosnia and herzegovina", "botswana",
+                    "brazil", "brunei darussalam", "bulgaria", "burundi", "cabo verde", "chile", "china, hong kong special administrative region",
+                    "china, macao special administrative region", "colombia", "cook islands", "costa rica", "croatia", "cyprus",
+                    "czech republic", "denmark", "dominica", "dominican republic", "ecuador", "el salvador", "estonia", "eswatini (swaziland)",
+                    "fiji", "finland", "france", "georgia", "germany", "greece", "grenada", "guatemala", "guyana", "honduras", "hungary", "iceland",
+                    "india", "ireland", "israel", "italy", "jamaica", "japan", "kazakhstan", "kosovo", "kyrgyzstan", "latvia", "lesotho", "liberia",
+                    "liechtenstein", "lithuania", "luxembourg", "malawi", "malta", "marshall islands", "mauritius", "mexico", "moldova, republic of",
+                    "monaco", "mongolia", "montenegro", "morocco", "namibia", "netherlands", "new zealand", "nicaragua", "north macedonia", "norway",
+                    "oman", "panama", "paraguay", "peru", "philippines", "poland", "portugal", "romania", "russian federation", "saint kitts and nevis",
+                    "saint lucia", "saint vincent and the grenadines", "samoa", "san marino", "sao tome and principe", "serbia", "seychelles", "singapore",
+                    "slovakia", "slovenia", "south africa", "spain", "suriname", "sweden", "switzerland", "tajikistan", "tonga", "trinidad and tobago",
+                    "tunisia", "turkey", "ukraine", "united kingdom of great britain and northern ireland", "uruguay", "uzbekistan", "vanuatu", "venezuela"
+                ];
+
+                // Function to update service options
+                function updateServiceOptions(country) {
+                    const formattedCountry = country.toLowerCase().trim();
+                    if (countries.includes(formattedCountry)) {
+                        serviceSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="$175-4-14-business-days">$175 - 4-14 business days</option>
+                <option value="$225-1-3-business-days">$225 - 1-2 business days</option>
+                <option value="$275-same-day">$275 - Same day</option>
+            `;
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Function to update status options
+                function updateStatusOptions(documentType) {
+                    const selectedDocumentType = documentTypeSelect.value;
+                    if (['diploma', 'transcript'].includes(selectedDocumentType)) {
+                        statusField.style.display = 'block';
+                        statusSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="document_notarized">My document has been notarized.</option>
+                <option value="need_notarization_format">I require notarization for my document. Please provide me with the notarization format.</option>
+                <option value="reach_out_to_school">I will reach out to my school for a notarized copy. Kindly send me the shipping information.</option>
+            `;
+                    } else {
+                        statusField.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Function to update options based on current selections
+                function updateOptions() {
+                    const selectedCountry = countrySelect.value;
+                    const selectedDocumentType = documentTypeSelect.value;
+
+                    updateServiceOptions(selectedCountry);
+                    updateStatusOptions(selectedDocumentType);
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+            //Apostile for certificates 
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "albania", "andorra", "antigua and barbuda", "argentina", "armenia", "australia", "austria", "azerbaijan",
+                    "bahamas", "bahrain", "barbados", "belarus", "belgium", "belize", "bosnia and herzegovina", "botswana",
+                    "brazil", "brunei darussalam", "bulgaria", "burundi", "cabo verde", "chile", "china, hong kong special administrative region",
+                    "china, macao special administrative region", "colombia", "cook islands", "costa rica", "croatia", "cyprus",
+                    "czech republic", "denmark", "dominica", "dominican republic", "ecuador", "el salvador", "estonia", "eswatini (swaziland)",
+                    "fiji", "finland", "france", "georgia", "germany", "greece", "grenada", "guatemala", "guyana", "honduras", "hungary", "iceland",
+                    "india", "ireland", "israel", "italy", "jamaica", "japan", "kazakhstan", "kosovo", "kyrgyzstan", "latvia", "lesotho", "liberia",
+                    "liechtenstein", "lithuania", "luxembourg", "malawi", "malta", "marshall islands", "mauritius", "mexico", "moldova, republic of",
+                    "monaco", "mongolia", "montenegro", "morocco", "namibia", "netherlands", "new zealand", "nicaragua", "north macedonia", "norway",
+                    "oman", "panama", "paraguay", "peru", "philippines", "poland", "portugal", "romania", "russian federation", "saint kitts and nevis",
+                    "saint lucia", "saint vincent and the grenadines", "samoa", "san marino", "sao tome and principe", "serbia", "seychelles", "singapore",
+                    "slovakia", "slovenia", "south africa", "spain", "suriname", "sweden", "switzerland", "tajikistan", "tonga", "trinidad and tobago",
+                    "tunisia", "turkey", "ukraine", "united kingdom of great britain and northern ireland", "uruguay", "uzbekistan", "vanuatu", "venezuela"
+                ];
+
+
+                const personalDocuments = [
+                    'marriage-certificates', 'death-certificates', 'birth-certificates'
+                ];
+
+                // Function to update service options based on selected country and document type
+                function updateOptions() {
+                    const selectedCountry = countrySelect.value.toLowerCase().replace(/ /g, '-');
+                    const selectedDocumentType = documentTypeSelect.value;
+
+                    // Reset service and status options
+                    serviceSelect.innerHTML = '<option value="">Choose</option>';
+                    statusSelect.innerHTML = '<option value="">Select Status Option</option>';
+
+                    // Update service options based on specific logic for certain countries
+                    if (specificCountries.includes(selectedCountry) && personalDocuments.includes(selectedDocumentType)) {
+                        serviceSelect.innerHTML = `
+                <option value="$175-4-14-business-days">$175 - 4-14 business days</option>
+                <option value="$225-1-3-business-days">$225 - 1-3 business days</option>
+                <option value="$275-same-day">$275 - Same day</option>
+            `;
+                    }
+
+                    // Show or hide status options based on selected document type
+                    if (personalDocuments.includes(selectedDocumentType)) {
+                        statusShow.style.display = 'block';
+                        statusSelect.innerHTML = `
+                <option value="document_notarized">I possess my document.</option>
+                <option value="need_notarization_format">I require assistence in acquiring my document. Kindly provide me with guidance on how to obtain my document and information on shipping services</option>
+            `;
+                    } else {
+                        statusShow.style.display = 'none';
+                    }
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+            //         //for federal and usiness documents
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "albania", "andorra", "antigua and barbuda", "argentina", "armenia", "australia", "austria", "azerbaijan",
+                    "bahamas", "bahrain", "barbados", "belarus", "belgium", "belize", "bosnia and herzegovina", "botswana",
+                    "brazil", "brunei darussalam", "bulgaria", "burundi", "cabo verde", "chile", "china, hong kong special administrative region",
+                    "china, macao special administrative region", "colombia", "cook islands", "costa rica", "croatia", "cyprus",
+                    "czech republic", "denmark", "dominica", "dominican republic", "ecuador", "el salvador", "estonia", "eswatini (swaziland)",
+                    "fiji", "finland", "france", "georgia", "germany", "greece", "grenada", "guatemala", "guyana", "honduras", "hungary", "iceland",
+                    "india", "ireland", "israel", "italy", "jamaica", "japan", "kazakhstan", "kosovo", "kyrgyzstan", "latvia", "lesotho", "liberia",
+                    "liechtenstein", "lithuania", "luxembourg", "malawi", "malta", "marshall islands", "mauritius", "mexico", "moldova, republic of",
+                    "monaco", "mongolia", "montenegro", "morocco", "namibia", "netherlands", "new zealand", "nicaragua", "north macedonia", "norway",
+                    "oman", "panama", "paraguay", "peru", "philippines", "poland", "portugal", "romania", "russian federation", "saint kitts and nevis",
+                    "saint lucia", "saint vincent and the grenadines", "samoa", "san marino", "sao tome and principe", "serbia", "seychelles", "singapore",
+                    "slovakia", "slovenia", "south africa", "spain", "suriname", "sweden", "switzerland", "tajikistan", "tonga", "trinidad and tobago",
+                    "tunisia", "turkey", "ukraine", "united kingdom of great britain and northern ireland", "uruguay", "uzbekistan", "vanuatu", "venezuela"
+                ];
+
+                const personalDocuments = [
+                    'article-of-incorporation', 'bank-statement', 'bill-of-sale', 'business-licence', 'bylaws', 'certificate-of-amendment', 'certificate-of-existence', 'certificate-of-good-standing', 'commercial-invoices-articles-of-incorporation', 'contracts', 'declaration', 'deeds', 'financial-statements', 'incorporation-certificates', 'leases', 'licenses-and-permits', 'minutes-of-meetings', 'mortgages', 'power-of-attorney', 'tax-returns'
+                ];
+
+                // Function to update service options based on selected country
+                function updateServiceOptions(country) {
+                    if (specificCountries.includes(country)) {
+                        serviceSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="$175-4-14-business-days">$175 4-14 business days</option>
+                <option value="$225-1-3-business-days">$225 1-2 business days</option>
+                <option value="$275-same-day">$275 Same day</option>
+            `;
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Function to update status options based on selected document type
+                function updateStatusOptions(documentType) {
+                    if (['article-of-incorporation', 'bank-statement', 'bill-of-sale', 'business-licence', 'bylaws', 'certificate-of-amendment', 'certificate-of-existence', 'certificate-of-good-standing', 'commercial-invoices-articles-of-incorporation', 'contracts', 'declaration', 'deeds', 'financial-statements', 'incorporation-certificates', 'leases', 'licenses-and-permits', 'minutes-of-meetings', 'mortgages', 'power-of-attorney', 'tax-returns'].includes(documentType)) {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="document_notarized">My document has been notarized.</option>
+                <option value="need_notarization_format">I require notarization for my document. Please provide me with the notarization format.</option>
+                <option value="need_notarization_format">I will reach out to my school for a notarized copy. Kindly send me the shipping information.</option>
+            `;
+                    } else {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Event listener for changes in country selection
+                countrySelect.addEventListener('change', function () {
+                    const selectedCountry = this.value.toLowerCase().replace(/ /g, '-');
+                    updateServiceOptions(selectedCountry);
+                });
+
+                // Event listener for changes in document type selection
+                documentTypeSelect.addEventListener('change', function () {
+                    const selectedDocumentType = this.value;
+                    updateStatusOptions(selectedDocumentType);
+                });
+            });
+
+
+            //         //Apostille for federal
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "albania", "andorra", "antigua and barbuda", "argentina", "armenia", "australia", "austria", "azerbaijan",
+                    "bahamas", "bahrain", "barbados", "belarus", "belgium", "belize", "bosnia and herzegovina", "botswana",
+                    "brazil", "brunei darussalam", "bulgaria", "burundi", "cabo verde", "chile", "china, hong kong special administrative region",
+                    "china, macao special administrative region", "colombia", "cook islands", "costa rica", "croatia", "cyprus",
+                    "czech republic", "denmark", "dominica", "dominican republic", "ecuador", "el salvador", "estonia", "eswatini (swaziland)",
+                    "fiji", "finland", "france", "georgia", "germany", "greece", "grenada", "guatemala", "guyana", "honduras", "hungary", "iceland",
+                    "india", "ireland", "israel", "italy", "jamaica", "japan", "kazakhstan", "kosovo", "kyrgyzstan", "latvia", "lesotho", "liberia",
+                    "liechtenstein", "lithuania", "luxembourg", "malawi", "malta", "marshall islands", "mauritius", "mexico", "moldova, republic of",
+                    "monaco", "mongolia", "montenegro", "morocco", "namibia", "netherlands", "new zealand", "nicaragua", "north macedonia", "norway",
+                    "oman", "panama", "paraguay", "peru", "philippines", "poland", "portugal", "romania", "russian federation", "saint kitts and nevis",
+                    "saint lucia", "saint vincent and the grenadines", "samoa", "san marino", "sao tome and principe", "serbia", "seychelles", "singapore",
+                    "slovakia", "slovenia", "south africa", "spain", "suriname", "sweden", "switzerland", "tajikistan", "tonga", "trinidad and tobago",
+                    "tunisia", "turkey", "ukraine", "united kingdom of great britain and northern ireland", "uruguay", "uzbekistan", "vanuatu", "venezuela"
+                ];
+
+                const federalDocuments = [
+                    'certificate-of-neutralization', 'consular-report-of-birth-abroad', 'fda-document', 'federal-background-checks',
+                    'irs-document', 'petition-for-name-change-affidavit', 'social-security-income-and-benefits', 'social-security-letter',
+                    'usda-letter'
+                ];
+
+                // Function to update service and status options
+                function updateOptions() {
+                    const country = countrySelect.value.toLowerCase().replace(/ /g, '-');
+                    const documentType = documentTypeSelect.value;
+
+                    // Update service options based on country
+                    if (specificCountries.includes(country)) {
+                        serviceSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="$175-4-14-business-days">$175 - 1-2 weeks</option>
+            `;
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+
+                    // Update status options based on document type
+                    if (federalDocuments.includes(documentType)) {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="document_notarized">My document has been notarized.</option>
+                <option value="need_notarization_format">I require notarization for my document. Please provide me with the notarization format.</option>
+                <option value="reach_out_to_school">I will reach out to my school for a notarized copy. Kindly send me the shipping information.</option>
+            `;
+                    } else {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+
+            //         // Countries Standard full legalization
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "afghanistan", "algeria", "angola", "bangladesh", "benin", "bhutan", "bolivia", "burkina faso",
+                    "cambodia", "cameroon", "canada", "chad", "china (excluding hong kong sar and macao sar)", "comoros",
+                    "congo (brazzaville)", "congo (kinshasa)", "cuba", "djibouti", "egypt", "eritrea", "ethiopia", "ghana",
+                    "guinea-bissau", "indonesia", "iran, islamic republic of", "iraq", "ivory coast (côte d’ivoire)", "jordan",
+                    "kenya", "korea, democratic people’s republic of", "kuwait", "laos", "lebanon", "libya", "madagascar",
+                    "malaysia", "mali", "mauritania", "mozambique", "myanmar", "nepal", "niger", "nigeria", "pakistan",
+                    "papua new guinea", "qatar", "rwanda", "saudi arabia", "senegal", "sierra leone", "sri lanka", "sudan",
+                    "syrian arab republic", "tanzania, united republic of", "thailand", "togo", "turkmenistan", "uganda",
+                    "united arab emirates", "vietnam", "yemen", "zambia", "zimbabwe"
+                ];
+
+
+                const personalDocuments = [
+                    'adoption-records', 'divorce-decrees', 'driver-licence', 'passport',
+                    'state-background', 'state-id', 'single-status-affidavit', 'transcript',
+                    'visas', 'voter-registration-cards'
+                ];
+
+                // Function to update service options based on selected country and document type
+                function updateOptions() {
+                    const selectedCountry = countrySelect.value.toLowerCase().replace(/ /g, '-');
+                    const selectedDocumentType = documentTypeSelect.value;
+
+                    // Reset service and status options
+                    serviceSelect.innerHTML = '<option value="">Choose</option>';
+                    statusSelect.innerHTML = '<option value="">Select Status Option</option>';
+
+                    // Update service options based on specific logic for certain countries
+                    if (specificCountries.includes(selectedCountry) && personalDocuments.includes(selectedDocumentType)) {
+                        serviceSelect.innerHTML = `
+                        <option value="">Choose</option>
+                        <option value="$175-4-14-business-days">$450 - Standard Full Legalization (10-12 weeks)</option>
+                        <option value="$225-1-3-business-day">$350 Federal and Embassy</option>
+`;
+                    }
+
+                    // Show or hide status options based on selected document type
+                    if (personalDocuments.includes(selectedDocumentType)) {
+                        statusShow.style.display = 'block';
+                        statusSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="document_notarized">My document has been notarized</option>
+                <option value="need_notarization_format">I require notarization for my document. Please Provide me with the notarization format.</option>
+                <option value="mdg_notary_apostille">Request MDG Notary to notarize the document and obtain an apostille from the California Secretary of State</option>
+            `;
+                    } else {
+                        statusShow.style.display = 'none';
+                    }
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+            //         // Standard Full Legalization for transcript and diploma
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusField = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const countries = [
+                    "afghanistan", "algeria", "angola", "bangladesh", "benin", "bhutan", "bolivia", "burkina faso",
+                    "cambodia", "cameroon", "canada", "chad", "china (excluding hong kong sar and macao sar)", "comoros",
+                    "congo (brazzaville)", "congo (kinshasa)", "cuba", "djibouti", "egypt", "eritrea", "ethiopia", "ghana",
+                    "guinea-bissau", "indonesia", "iran, islamic republic of", "iraq", "ivory coast (côte d’ivoire)", "jordan",
+                    "kenya", "korea, democratic people’s republic of", "kuwait", "laos", "lebanon", "libya", "madagascar",
+                    "malaysia", "mali", "mauritania", "mozambique", "myanmar", "nepal", "niger", "nigeria", "pakistan",
+                    "papua new guinea", "qatar", "rwanda", "saudi arabia", "senegal", "sierra leone", "sri lanka", "sudan",
+                    "syrian arab republic", "tanzania, united republic of", "thailand", "togo", "turkmenistan", "uganda",
+                    "united arab emirates", "vietnam", "yemen", "zambia", "zimbabwe"
+                ];
+
+                // Function to update service options
+                function updateServiceOptions(country) {
+                    const formattedCountry = country.toLowerCase().trim();
+                    if (countries.includes(formattedCountry)) {
+                        serviceSelect.innerHTML = `
+                        <option value="">Choose</option>
+                        <option value="$175-4-14-business-days">$450 - Standard Full Legalization (10-12 weeks)</option>
+                        <option value="$225-1-3-business-day">$350 Federal and Embassy</option>
+                     `;
+
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Function to update status options
+                function updateStatusOptions(documentType) {
+                    const selectedDocumentType = documentTypeSelect.value;
+                    if (['diploma', 'transcript'].includes(selectedDocumentType)) {
+                        statusField.style.display = 'block';
+                        statusSelect.innerHTML = `
+                        <option value="">Choose</option>
+                        <option value="document_notarized">My document is already notarized</option>
+                        <option value="need_notarization_format">I need to notarize my document, send me the format.</option>
+                        <option value="reach_out_to_school">I will reach out to my school for a notarized copy. Kindly send me the shipping
+                        information.</option>
+                        <option value="need_notarization_format">Request MDG Notary to notarize the document and obtainan apostille of States
+                        </option>
+ `;
+                    } else {
+                        statusField.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Function to update options based on current selections
+                function updateOptions() {
+                    const selectedCountry = countrySelect.value;
+                    const selectedDocumentType = documentTypeSelect.value;
+
+                    updateServiceOptions(selectedCountry);
+                    updateStatusOptions(selectedDocumentType);
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+            //         // Standard full legalization for certificates
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "afghanistan", "algeria", "angola", "bangladesh", "benin", "bhutan", "bolivia", "burkina faso",
+                    "cambodia", "cameroon", "canada", "chad", "china (excluding hong kong sar and macao sar)", "comoros",
+                    "congo (brazzaville)", "congo (kinshasa)", "cuba", "djibouti", "egypt", "eritrea", "ethiopia", "ghana",
+                    "guinea-bissau", "indonesia", "iran, islamic republic of", "iraq", "ivory coast (côte d’ivoire)", "jordan",
+                    "kenya", "korea, democratic people’s republic of", "kuwait", "laos", "lebanon", "libya", "madagascar",
+                    "malaysia", "mali", "mauritania", "mozambique", "myanmar", "nepal", "niger", "nigeria", "pakistan",
+                    "papua new guinea", "qatar", "rwanda", "saudi arabia", "senegal", "sierra leone", "sri lanka", "sudan",
+                    "syrian arab republic", "tanzania, united republic of", "thailand", "togo", "turkmenistan", "uganda",
+                    "united arab emirates", "vietnam", "yemen", "zambia", "zimbabwe"
+                ];
+
+
+                const personalDocuments = [
+                    'marriage-certificates', 'death-certificates', 'birth-certificates'
+                ];
+
+                // Function to update service options based on selected country and document type
+                function updateOptions() {
+                    const selectedCountry = countrySelect.value.toLowerCase().replace(/ /g, '-');
+                    const selectedDocumentType = documentTypeSelect.value;
+
+                    // Reset service and status options
+                    serviceSelect.innerHTML = '<option value="">Choose</option>';
+                    statusSelect.innerHTML = '<option value="">Select Status Option</option>';
+
+                    // Update service options based on specific logic for certain countries
+                    if (specificCountries.includes(selectedCountry) && personalDocuments.includes(selectedDocumentType)) {
+                        serviceSelect.innerHTML = `
+                        <option value="">Choose</option>
+                        <option value="$175-4-14-business-days">$450 - Standard Full Legalization (10-12 weeks)</option>
+                         <option value="$225-1-3-business-day">$350 Federal and Embassy</option>
+                     `;
+                    }
+
+                    // Show or hide status options based on selected document type
+                    if (personalDocuments.includes(selectedDocumentType)) {
+                        statusShow.style.display = 'block';
+                        statusSelect.innerHTML = `
+                        <option value="">Choose</option>
+                        <option value="document_notarized">I possessmy document</option>
+                         <option value="need_notarization_format">I require assistance i acquiring my document. Kindly provide me with guidance on how to obtain my document and information </option>
+                         <option value="need_notarization_format">Request MDG Notary to notarize the document and obtainan apostille from the Califonia Secretary of States</option>
+                     `;
+                    } else {
+                        statusShow.style.display = 'none';
+                    }
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+            //Legalization for usiness
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "afghanistan", "algeria", "angola", "bangladesh", "benin", "bhutan", "bolivia", "burkina faso",
+                    "cambodia", "cameroon", "canada", "chad", "china (excluding hong kong sar and macao sar)", "comoros",
+                    "congo (brazzaville)", "congo (kinshasa)", "cuba", "djibouti", "egypt", "eritrea", "ethiopia", "ghana",
+                    "guinea-bissau", "indonesia", "iran, islamic republic of", "iraq", "ivory coast (côte d’ivoire)", "jordan",
+                    "kenya", "korea, democratic people’s republic of", "kuwait", "laos", "lebanon", "libya", "madagascar",
+                    "malaysia", "mali", "mauritania", "mozambique", "myanmar", "nepal", "niger", "nigeria", "pakistan",
+                    "papua new guinea", "qatar", "rwanda", "saudi arabia", "senegal", "sierra leone", "sri lanka", "sudan",
+                    "syrian arab republic", "tanzania, united republic of", "thailand", "togo", "turkmenistan", "uganda",
+                    "united arab emirates", "vietnam", "yemen", "zambia", "zimbabwe"
+                ];
+
+                const personalDocuments = [
+                    'article-of-incorporation', 'bank-statement', 'bill-of-sale', 'business-licence', 'bylaws', 'certificate-of-amendment', 'certificate-of-existence', 'certificate-of-good-standing', 'commercial-invoices-articles-of-incorporation', 'contracts', 'declaration', 'deeds', 'financial-statements', 'incorporation-certificates', 'leases', 'licenses-and-permits', 'minutes-of-meetings', 'mortgages', 'power-of-attorney', 'tax-returns'
+                ];
+
+                // Function to update service options based on selected country
+                function updateServiceOptions(country) {
+                    if (specificCountries.includes(country)) {
+                        serviceSelect.innerHTML = `
+                         <option value="">Choose</option>
+                        <option value="$175-4-14-business-days">$450 - Standard Full Legalization (10-12 weeks)</option>
+                        <option value="$225-1-3-business-day">$350 Federal and Embassy</option>
+ `;
+
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Function to update status options based on selected document type
+                function updateStatusOptions(documentType) {
+                    if (['article-of-incorporation', 'bank-statement', 'bill-of-sale', 'business-licence', 'bylaws', 'certificate-of-amendment', 'certificate-of-existence', 'certificate-of-good-standing', 'commercial-invoices-articles-of-incorporation', 'contracts', 'declaration', 'deeds', 'financial-statements', 'incorporation-certificates', 'leases', 'licenses-and-permits', 'minutes-of-meetings', 'mortgages', 'power-of-attorney', 'tax-returns'].includes(documentType)) {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `
+                 <option value="">Choose</option>
+                 <option value="document_notarized">My document has been notarized.</option>
+                 <option value="need_notarization_format">I require notarization for my document. Please provide me with the notarization format.</option>
+                 <option value="need_notarization_format">I will reach out to my school for a notarized copy. Kindly send me the shipping information.</option>
+             `;
+                    } else {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Event listener for changes in country selection
+                countrySelect.addEventListener('change', function () {
+                    const selectedCountry = this.value.toLowerCase().replace(/ /g, '-');
+                    updateServiceOptions(selectedCountry);
+                });
+
+                // Event listener for changes in document type selection
+                documentTypeSelect.addEventListener('change', function () {
+                    const selectedDocumentType = this.value;
+                    updateStatusOptions(selectedDocumentType);
+                });
+            });
+
+            //Legalization for federal 
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "afghanistan", "algeria", "angola", "bangladesh", "benin", "bhutan", "bolivia", "burkina faso",
+                    "cambodia", "cameroon", "canada", "chad", "china (excluding hong kong sar and macao sar)", "comoros",
+                    "congo (brazzaville)", "congo (kinshasa)", "cuba", "djibouti", "egypt", "eritrea", "ethiopia", "ghana",
+                    "guinea-bissau", "indonesia", "iran, islamic republic of", "iraq", "ivory coast (côte d’ivoire)", "jordan",
+                    "kenya", "korea, democratic people’s republic of", "kuwait", "laos", "lebanon", "libya", "madagascar",
+                    "malaysia", "mali", "mauritania", "mozambique", "myanmar", "nepal", "niger", "nigeria", "pakistan",
+                    "papua new guinea", "qatar", "rwanda", "saudi arabia", "senegal", "sierra leone", "sri lanka", "sudan",
+                    "syrian arab republic", "tanzania, united republic of", "thailand", "togo", "turkmenistan", "uganda",
+                    "united arab emirates", "vietnam", "yemen", "zambia", "zimbabwe"
+                ];
+
+                const federalDocuments = [
+                    'certificate-of-neutralization', 'fda-document', 'federal-background-checks',
+                    'irs-document', 'petition-for-name-change-affidavit', 'social-security-income-and-benefits', 'social-security-letter',
+                    'usda-letter'
+                ];
+
+                // Function to update service and status options
+                function updateOptions() {
+                    const country = countrySelect.value.toLowerCase().replace(/ /g, '-');
+                    const documentType = documentTypeSelect.value;
+
+                    // Update service options based on country
+                    if (specificCountries.includes(country)) {
+                        serviceSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="$175-4-14-business-days">$350 - State Dept and Embassy (8-12 weeks)</option>
+            `;
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+
+                    // Update status options based on document type
+                    if (federalDocuments.includes(documentType)) {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="document_notarized">My document has been notarized.</option>
+                <option value="need_notarization_format">I require notarization for my document. Please provide me with the notarization format.</option>
+                <option value="reach_out_to_school">I will reach out to my school for a notarized copy. Kindly send me the shipping information.</option>
+            `;
+                    } else {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+            //Legislation for Cosular
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "afghanistan", "algeria", "angola", "bangladesh", "benin", "bhutan", "bolivia", "burkina faso",
+                    "cambodia", "cameroon", "canada", "chad", "china (excluding hong kong sar and macao sar)", "comoros",
+                    "congo (brazzaville)", "congo (kinshasa)", "cuba", "djibouti", "egypt", "eritrea", "ethiopia", "ghana",
+                    "guinea-bissau", "indonesia", "iran, islamic republic of", "iraq", "ivory coast (côte d’ivoire)", "jordan",
+                    "kenya", "korea, democratic people’s republic of", "kuwait", "laos", "lebanon", "libya", "madagascar",
+                    "malaysia", "mali", "mauritania", "mozambique", "myanmar", "nepal", "niger", "nigeria", "pakistan",
+                    "papua new guinea", "qatar", "rwanda", "saudi arabia", "senegal", "sierra leone", "sri lanka", "sudan",
+                    "syrian arab republic", "tanzania, united republic of", "thailand", "togo", "turkmenistan", "uganda",
+                    "united arab emirates", "vietnam", "yemen", "zambia", "zimbabwe"
+                ];
+
+                const personalDocuments = [
+                    'consular-report-of-birth-abroad'
+                ];
+
+                // Function to update service options based on selected country
+                function updateServiceOptions(country) {
+                    if (specificCountries.includes(country)) {
+                        serviceSelect.innerHTML = `
+                         <option value="">Choose</option>
+                        <option value="$225-1-3-business-day">$295 Federal and Embassy</option>
+ `;
+
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Function to update status options based on selected document type
+                function updateStatusOptions(documentType) {
+                    if (['consular-report-of-birth-abroad'].includes(documentType)) {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `
+                 <option value="">Choose</option>
+                 <option value="document_notarized">My document has been notarized.</option>
+                 <option value="need_notarization_format">I require notarization for my document. Please provide me with the notarization format.</option>
+                 <option value="need_notarization_format">I will reach out to my school for a notarized copy. Kindly send me the shipping information.</option>
+             `;
+                    } else {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Event listener for changes in country selection
+                countrySelect.addEventListener('change', function () {
+                    const selectedCountry = this.value.toLowerCase().replace(/ /g, '-');
+                    updateServiceOptions(selectedCountry);
+                });
+
+                // Event listener for changes in document type selection
+                documentTypeSelect.addEventListener('change', function () {
+                    const selectedDocumentType = this.value;
+                    updateStatusOptions(selectedDocumentType);
+                });
+            });
+
+            // Legiskation for social security income
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const countrySelect = document.getElementById('country');
+                const documentTypeSelect = document.getElementById('document-type');
+                const serviceSelect = document.getElementById('service');
+                const statusShow = document.getElementById('status-show');
+                const statusSelect = document.getElementById('status');
+
+                const specificCountries = [
+                    "afghanistan", "algeria", "angola", "bangladesh", "benin", "bhutan", "bolivia", "burkina faso",
+                    "cambodia", "cameroon", "canada", "chad", "china (excluding hong kong sar and macao sar)", "comoros",
+                    "congo (brazzaville)", "congo (kinshasa)", "cuba", "djibouti", "egypt", "eritrea", "ethiopia", "ghana",
+                    "guinea-bissau", "indonesia", "iran, islamic republic of", "iraq", "ivory coast (côte d’ivoire)", "jordan",
+                    "kenya", "korea, democratic people’s republic of", "kuwait", "laos", "lebanon", "libya", "madagascar",
+                    "malaysia", "mali", "mauritania", "mozambique", "myanmar", "nepal", "niger", "nigeria", "pakistan",
+                    "papua new guinea", "qatar", "rwanda", "saudi arabia", "senegal", "sierra leone", "sri lanka", "sudan",
+                    "syrian arab republic", "tanzania, united republic of", "thailand", "togo", "turkmenistan", "uganda",
+                    "united arab emirates", "vietnam", "yemen", "zambia", "zimbabwe"
+                ];
+
+                const federalDocuments = [
+                    'social-security-income-and-benefits'
+                ];
+
+                // Function to update service and status options
+                function updateOptions() {
+                    const country = countrySelect.value.toLowerCase().replace(/ /g, '-');
+                    const documentType = documentTypeSelect.value;
+
+                    // Update service options based on country
+                    if (specificCountries.includes(country)) {
+                        serviceSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="$175-4-14-business-days">$350 - State Dept and Embassy (8-12 weeks)</option>
+            `;
+                    } else {
+                        serviceSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+
+                    // Update status options based on document type
+                    if (federalDocuments.includes(documentType)) {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `
+                <option value="">Choose</option>
+                <option value="document_notarized">My document has been notarized.</option>
+                <option value="need_notarization_format">I require notarization for my document. Please provide me with the notarization format.</option>
+                <option value="reach_out_to_school">I will reach out to my school for a notarized copy. Kindly send me the shipping information.</option>
+            `;
+                    } else {
+                        statusShow.style.display = 'none';
+                        statusSelect.innerHTML = `<option value="">Choose</option>`;
+                    }
+                }
+
+                // Initial call to update options based on initial values
+                updateOptions();
+
+                // Event listeners for changes in country and document type
+                countrySelect.addEventListener('change', updateOptions);
+                documentTypeSelect.addEventListener('change', updateOptions);
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
